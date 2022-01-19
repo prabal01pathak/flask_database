@@ -1,9 +1,10 @@
 import requests
 import json
-from mysql import connector
 import os
 import random
 import logging
+import asyncio
+import aiomysql
 
 #logging.basicConfig(level=logging.DEBUG,filename="send_to_server.log",
 #                    format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
@@ -13,9 +14,24 @@ logging.basicConfig(filename="send_to_server.log",format='%(asctime)s,%(msecs)d 
                         level=logging.DEBUG)
 
 
-password = os.environ['PASSWORD']
-mysql = connector.connect(user='root', password=password,
-                          host='localhost', database='new_data')
+async def connect_to_database():
+    """
+    connect to database
+    """
+    password = os.environ['PASSWORD']
+    try:
+        mysql = await aiomysql.connect(
+            host='localhost',
+            user='root',
+            password=password,
+            db='new_data'
+        )
+        return mysql
+    except Exception as e:
+        logging.error(
+            "Error in connecting to database", exc_info=True)
+        return None
+
 
 # FAKE DATA
 new_data = random.randint(1, 100)
@@ -25,12 +41,11 @@ data = {
 }
 
 
-def send_save_data(data):
+async def send_save_data(data):
     """
     send_save_data(data) takes data and save it locally 
     and send to other server 
     """
-    cur = mysql.cursor()
 
     # status if failed or success to send other server
     status = False
@@ -38,46 +53,28 @@ def send_save_data(data):
     insert_query = "INSERT INTO backup_user (name, username,other_status) VALUES (%(name)s, %(username)s, %(status)s)"
 
     # send data to other server 
-    status_code = 404
-
-    try:
-        send_data = requests.post("http://localhost:5000/", json=data)
-        status_code = send_data.status_code
-
-    except Exception as e:
-        logging.error(
-            "error in sending data to other server", exec_info=True)
-
-    finally:
-        if status_code == 200:
-            status = True
-            cur.execute(insert_query, {"name":data['name'], "username":data['username'],"status":status})
-            mysql.commit()
-            cur.close()
-
-            # logging
-            logging.info(
-                f"name: {data['username']} created succesfully!  send to other server")
-            return json.dumps({'message': f"name: {data['username']} created succesfully! send to other server"})
-
-        else:
-            cur.execute(insert_query, {"name":data['name'], "username":data['username'],"status":status})
-            mysql.commit()
-            cur.close()
-            logging.info(
-                {'message': f"name: {data['username']} created succesfully! but not send to other server"})
-            return json.dumps({'message': f"name: {data['username']} created succesfully! but not send to other server"})
+    #status_code = 404
+    mysql = await asyncio.create_task(connect_to_database())
+    cur =  await mysql.cursor()
+    await cur.execute(insert_query, {"name":data['name'], "username":data['username'],"status":status})
+    await mysql.commit()
+    await cur.close()
+    mysql.close()
+    logging.info(
+        {'message': f"name: {data['username']} created succesfully! but not send to other server"})
+    return json.dumps({'message': f"name: {data['username']} created succesfully! but not send to other server"})
 
 
 async def send_remain_data():
     """ 
     it will send data remaining data to other server 
     """
-    cur = mysql.cursor()
+    mysql = await asyncio.create_task(connect_to_database())
+    cur =await mysql.cursor()
 
     # get all data where status_code = false
-    cur.execute("SELECT * FROM backup_user WHERE other_status = False")
-    result = cur.fetchall()
+    await cur.execute("SELECT * FROM backup_user WHERE other_status = False")
+    result = await cur.fetchall()
     logging.info(f"Fetch result:  {result}")
 
     # if rseult length > 0 then try to send them again.
@@ -96,33 +93,51 @@ async def send_remain_data():
             # try to send the data
             try:
                 # send data to server
-                send_data = requests.post("http://localhost:5000/", json=data)
+                send_data = requests.post("http://localhost:5000/", json=data, timeout=0.5)
+                print(send_data.status_code)
                 status_code = send_data.status_code
-
-                # if data sent successfully then update it in local database
-                logging.info("Updating data")
-                cur.execute(
-                    "UPDATE backup_user SET other_status = True WHERE name= %(name)s and username=%(username)s AND other_status=False", {"name":row[0], "username":row[1]})
-
-                mysql.commit()
-                logging.info(f"{row[1]} Successfully send to other server")
 
             except Exception as e:
                 logging.error(
                     "Error in sending data to other server", exc_info=True)
 
             finally:
-                if status_code != 200:
-                    logging.info("Host is down")
-                    return json.dumps({"message": "Host is down"})
+                # if data sent successfully then update it in local database
+                if status_code == 200:
+                    logging.info("Updating data")
+                    await cur.execute(
+                            "UPDATE backup_user SET other_status = True WHERE name= %(name)s and username=%(username)s AND other_status=False", {"name":row[0], "username":row[1]})
 
-        cur.close()
+                    await mysql.commit()
+                    logging.info(f"{row[1]} Successfully send to other server")
+                else:
+                    logging.info("Host is down")
+                    logging.info(f"Status Code: {status_code}")
+                    print('sleeping')
+                    try:
+                        await cur.close()
+                    except Exception as e:
+                        logging.error(
+                            "Error in closing cursor", exc_info=True)
+                    mysql.close()
+                    return json.dumps({"message": "Host is down"})
+        await cur.close()
+        mysql.close()
         return json.dumps({"message": "All data Sent to server"})
 
-    cur.close()
+    await cur.close()
+    mysql.close()
     return json.dumps({"message": "No data available for send to the server"})
 
+async def main(data):
+    """
+    main function
+    """
+    l = await asyncio.gather(send_save_data(data))
+    m = await asyncio.gather(send_remain_data())
+    print(l)
+    print(m)
 
+if __name__ == "__main__":
+    asyncio.run(main(data))
 
-print(send_save_data(data))
-send_remain_data()

@@ -79,3 +79,2085 @@ requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5
 2022-01-19:22:49:39,182 INFO     [send_to_server.py:67] {'message': 'name: 61prabal created succesfully! but not send to other server'}
 2022-01-19:22:49:52,913 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
 2022-01-19:22:49:57,591 INFO     [send_to_server.py:67] {'message': 'name: 34prabal created succesfully! but not send to other server'}
+2022-01-19:22:54:41,554 INFO     [send_to_server.py:69] {'message': 'name: 89prabal created succesfully! but not send to other server'}
+2022-01-19:22:55:18,58 INFO     [send_to_server.py:69] {'message': 'name: 97prabal created succesfully! but not send to other server'}
+2022-01-19:22:55:33,233 INFO     [send_to_server.py:69] {'message': 'name: 44prabal created succesfully! but not send to other server'}
+2022-01-19:22:55:33,733 INFO     [send_to_server.py:83] Fetch result:  [('prabal', '61prabal', 0), ('prabal', '34prabal', 0), ('prabal', '89prabal', 0), ('prabal', '97prabal', 0), ('prabal', '44prabal', 0)]
+2022-01-19:22:55:33,733 INFO     [send_to_server.py:87] Sending remaining data
+2022-01-19:22:55:33,733 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-19:22:55:37,812 ERROR    [send_to_server.py:113] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001B7828DF2E0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B7828DF2E0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 101, in send_remain_data
+    send_data = requests.post("http://localhost:5000/", json=data)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B7828DF2E0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2022-01-19:22:55:38,202 INFO     [send_to_server.py:118] Host is down
+2022-01-19:22:55:56,360 INFO     [send_to_server.py:69] {'message': 'name: 58prabal created succesfully! but not send to other server'}
+2022-01-19:22:55:56,391 INFO     [send_to_server.py:83] Fetch result:  [('prabal', '61prabal', 0), ('prabal', '34prabal', 0), ('prabal', '89prabal', 0), ('prabal', '97prabal', 0), ('prabal', '44prabal', 0), ('prabal', '58prabal', 0)]
+2022-01-19:22:55:56,391 INFO     [send_to_server.py:87] Sending remaining data
+2022-01-19:22:55:56,391 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-19:22:56:00,456 ERROR    [send_to_server.py:113] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000002292A06F310>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002292A06F310>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 101, in send_remain_data
+    send_data = requests.post("http://localhost:5000/", json=data)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002292A06F310>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2022-01-19:22:56:00,456 INFO     [send_to_server.py:118] Host is down
+2022-01-19:23:05:50,121 INFO     [send_to_server.py:70] {'message': 'name: 55prabal created succesfully! but not send to other server'}
+2022-01-19:23:05:50,199 INFO     [send_to_server.py:84] Fetch result:  [('prabal', '61prabal', 0), ('prabal', '34prabal', 0), ('prabal', '89prabal', 0), ('prabal', '97prabal', 0), ('prabal', '44prabal', 0), ('prabal', '58prabal', 0), ('prabal', '55prabal', 0)]
+2022-01-19:23:05:50,199 INFO     [send_to_server.py:88] Sending remaining data
+2022-01-19:23:05:50,277 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-19:23:05:54,371 ERROR    [send_to_server.py:114] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000021B85F7CEE0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000021B85F7CEE0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 102, in send_remain_data
+    send_data = requests.post("http://localhost:5000/", json=data)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000021B85F7CEE0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2022-01-19:23:05:54,481 INFO     [send_to_server.py:119] Host is down
+2022-01-19:23:08:52,897 INFO     [send_to_server.py:70] {'message': 'name: 40prabal created succesfully! but not send to other server'}
+2022-01-19:23:08:52,897 INFO     [send_to_server.py:84] Fetch result:  [('prabal', '40prabal', 0)]
+2022-01-19:23:08:52,897 INFO     [send_to_server.py:88] Sending remaining data
+2022-01-19:23:08:52,897 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-19:23:08:56,943 ERROR    [send_to_server.py:114] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000020149B88940>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000020149B88940>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 102, in send_remain_data
+    send_data = requests.post("http://localhost:5000/", json=data)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000020149B88940>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2022-01-19:23:08:56,943 INFO     [send_to_server.py:119] Host is down
+2022-01-19:23:17:12,138 INFO     [send_to_server.py:70] {'message': 'name: 77prabal created succesfully! but not send to other server'}
+2022-01-19:23:17:12,213 INFO     [send_to_server.py:84] Fetch result:  [('prabal', '40prabal', 0), ('prabal', '77prabal', 0)]
+2022-01-19:23:17:12,213 INFO     [send_to_server.py:88] Sending remaining data
+2022-01-19:23:17:12,314 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-19:23:17:16,449 ERROR    [send_to_server.py:114] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001B4658AA520>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B4658AA520>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 102, in send_remain_data
+    send_data = requests.post("http://localhost:5000/", json=data)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B4658AA520>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2022-01-19:23:17:16,534 INFO     [send_to_server.py:119] Host is down
+2022-01-19:23:18:03,477 INFO     [send_to_server.py:70] {'message': 'name: 45prabal created succesfully! but not send to other server'}
+2022-01-19:23:18:03,477 INFO     [send_to_server.py:84] Fetch result:  [('prabal', '40prabal', 0), ('prabal', '77prabal', 0), ('prabal', '45prabal', 0)]
+2022-01-19:23:18:03,477 INFO     [send_to_server.py:88] Sending remaining data
+2022-01-19:23:18:03,498 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-19:23:18:07,559 ERROR    [send_to_server.py:114] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001EC507BA580>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001EC507BA580>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 102, in send_remain_data
+    send_data = requests.post("http://localhost:5000/", json=data)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001EC507BA580>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2022-01-19:23:18:07,563 INFO     [send_to_server.py:119] Host is down
+2022-01-19:23:20:24,321 INFO     [send_to_server.py:70] {'message': 'name: 22prabal created succesfully! but not send to other server'}
+2022-01-19:23:20:24,399 INFO     [send_to_server.py:84] Fetch result:  [('prabal', '40prabal', 0), ('prabal', '77prabal', 0), ('prabal', '45prabal', 0), ('prabal', '22prabal', 0)]
+2022-01-19:23:20:24,399 INFO     [send_to_server.py:88] Sending remaining data
+2022-01-19:23:20:24,399 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-19:23:20:26,843 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-19:23:20:26,843 INFO     [send_to_server.py:106] Updating data
+2022-01-19:23:20:27,140 INFO     [send_to_server.py:111] 40prabal Successfully send to other server
+2022-01-19:23:20:27,140 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-19:23:20:29,452 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-19:23:20:29,452 INFO     [send_to_server.py:106] Updating data
+2022-01-19:23:20:29,687 INFO     [send_to_server.py:111] 77prabal Successfully send to other server
+2022-01-19:23:20:29,687 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-19:23:20:31,837 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-19:23:20:31,837 INFO     [send_to_server.py:106] Updating data
+2022-01-19:23:20:31,947 INFO     [send_to_server.py:111] 45prabal Successfully send to other server
+2022-01-19:23:20:31,947 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-19:23:20:34,259 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-19:23:20:34,259 INFO     [send_to_server.py:106] Updating data
+2022-01-19:23:20:34,368 INFO     [send_to_server.py:111] 22prabal Successfully send to other server
+2022-01-19:23:23:34,575 INFO     [send_to_server.py:71] {'message': 'name: 16prabal created succesfully! but not send to other server'}
+2022-01-19:23:43:25,839 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-19:23:45:21,484 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-19:23:46:16,252 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-19:23:46:38,582 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-19:23:47:02,825 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-19:23:47:03,90 INFO     [send_to_server.py:70] {'message': 'name: 51prabal created succesfully! but not send to other server'}
+2022-01-19:23:47:09,529 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-19:23:48:13,103 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-19:23:48:13,212 INFO     [send_to_server.py:70] {'message': 'name: 63prabal created succesfully! but not send to other server'}
+2022-01-19:23:48:46,54 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-19:23:48:46,241 INFO     [send_to_server.py:70] {'message': 'name: 95prabal created succesfully! but not send to other server'}
+2022-01-19:23:48:46,241 INFO     [send_to_server.py:84] Fetch result:  [('prabal', '16prabal', 0), ('prabal', '51prabal', 0), ('prabal', '63prabal', 0), ('prabal', '95prabal', 0)]
+2022-01-19:23:48:46,241 INFO     [send_to_server.py:88] Sending remaining data
+2022-01-19:23:48:46,241 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-19:23:48:48,569 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-19:23:48:48,569 INFO     [send_to_server.py:106] Updating data
+2022-01-19:23:48:48,679 INFO     [send_to_server.py:111] 16prabal Successfully send to other server
+2022-01-19:23:48:48,679 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-19:23:48:50,835 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-19:23:48:50,835 INFO     [send_to_server.py:106] Updating data
+2022-01-19:23:48:51,39 INFO     [send_to_server.py:111] 51prabal Successfully send to other server
+2022-01-19:23:48:51,54 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-19:23:48:53,194 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-19:23:48:53,194 INFO     [send_to_server.py:106] Updating data
+2022-01-19:23:48:53,335 INFO     [send_to_server.py:111] 63prabal Successfully send to other server
+2022-01-19:23:48:53,335 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-19:23:48:55,632 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-19:23:48:55,632 INFO     [send_to_server.py:106] Updating data
+2022-01-19:23:48:55,726 INFO     [send_to_server.py:111] 95prabal Successfully send to other server
+2022-01-19:23:58:36,127 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-19:23:58:36,268 INFO     [send_to_server.py:70] {'message': 'name: 53prabal created succesfully! but not send to other server'}
+2022-01-19:23:58:36,284 INFO     [send_to_server.py:84] Fetch result:  [('prabal', '53prabal', 0)]
+2022-01-19:23:58:36,284 INFO     [send_to_server.py:88] Sending remaining data
+2022-01-19:23:58:37,284 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-19:23:58:39,700 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-19:23:58:39,700 INFO     [send_to_server.py:107] Updating data
+2022-01-19:23:58:40,75 INFO     [send_to_server.py:112] 53prabal Successfully send to other server
+2022-01-19:23:59:07,523 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-19:23:59:07,617 INFO     [send_to_server.py:70] {'message': 'name: 51prabal created succesfully! but not send to other server'}
+2022-01-19:23:59:07,633 INFO     [send_to_server.py:84] Fetch result:  [('prabal', '51prabal', 0)]
+2022-01-19:23:59:07,633 INFO     [send_to_server.py:88] Sending remaining data
+2022-01-19:23:59:07,633 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-19:23:59:09,914 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-19:23:59:09,914 INFO     [send_to_server.py:106] Updating data
+2022-01-19:23:59:10,227 INFO     [send_to_server.py:111] 51prabal Successfully send to other server
+2022-01-19:23:59:42,800 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-19:23:59:42,987 INFO     [send_to_server.py:70] {'message': 'name: 20prabal created succesfully! but not send to other server'}
+2022-01-19:23:59:42,987 INFO     [send_to_server.py:84] Fetch result:  [('prabal', '20prabal', 0)]
+2022-01-19:23:59:42,987 INFO     [send_to_server.py:88] Sending remaining data
+2022-01-19:23:59:43,3 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-19:23:59:45,347 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-19:23:59:45,347 INFO     [send_to_server.py:106] Updating data
+2022-01-19:23:59:45,581 INFO     [send_to_server.py:111] 20prabal Successfully send to other server
+2022-01-20:00:00:30,744 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:00:30,932 INFO     [send_to_server.py:70] {'message': 'name: 83prabal created succesfully! but not send to other server'}
+2022-01-20:00:00:30,979 INFO     [send_to_server.py:84] Fetch result:  [('prabal', '83prabal', 0)]
+2022-01-20:00:00:30,979 INFO     [send_to_server.py:88] Sending remaining data
+2022-01-20:00:00:30,979 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:00:33,340 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:00:33,371 ERROR    [send_to_server.py:114] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 102, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data)
+TypeError: object Response can't be used in 'await' expression
+2022-01-20:00:00:33,371 INFO     [send_to_server.py:119] Host is down
+2022-01-20:00:01:16,938 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:01:17,47 INFO     [send_to_server.py:70] {'message': 'name: 99prabal created succesfully! but not send to other server'}
+2022-01-20:00:01:17,47 INFO     [send_to_server.py:84] Fetch result:  [('prabal', '83prabal', 0), ('prabal', '99prabal', 0)]
+2022-01-20:00:01:17,47 INFO     [send_to_server.py:88] Sending remaining data
+2022-01-20:00:01:17,47 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:01:19,282 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:01:19,282 ERROR    [send_to_server.py:114] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 102, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data)
+TypeError: object Response can't be used in 'await' expression
+2022-01-20:00:01:19,282 INFO     [send_to_server.py:119] Host is down
+2022-01-20:00:01:56,259 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:02:10,792 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:02:10,885 INFO     [send_to_server.py:70] {'message': 'name: 67prabal created succesfully! but not send to other server'}
+2022-01-20:00:02:10,901 INFO     [send_to_server.py:84] Fetch result:  [('prabal', '83prabal', 0), ('prabal', '99prabal', 0), ('prabal', '67prabal', 0)]
+2022-01-20:00:02:10,901 INFO     [send_to_server.py:88] Sending remaining data
+2022-01-20:00:02:10,901 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:02:13,135 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:02:13,135 ERROR    [send_to_server.py:114] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 102, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data)
+TypeError: object Response can't be used in 'await' expression
+2022-01-20:00:02:13,135 INFO     [send_to_server.py:119] Host is down
+2022-01-20:00:02:32,175 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:02:32,268 INFO     [send_to_server.py:70] {'message': 'name: 67prabal created succesfully! but not send to other server'}
+2022-01-20:00:02:32,268 INFO     [send_to_server.py:84] Fetch result:  [('prabal', '83prabal', 0), ('prabal', '99prabal', 0), ('prabal', '67prabal', 0), ('prabal', '67prabal', 0)]
+2022-01-20:00:02:32,268 INFO     [send_to_server.py:88] Sending remaining data
+2022-01-20:00:02:32,268 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:02:34,472 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:02:34,472 ERROR    [send_to_server.py:114] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 102, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data)
+TypeError: object Response can't be used in 'await' expression
+2022-01-20:00:02:34,472 INFO     [send_to_server.py:119] Host is down
+2022-01-20:00:03:06,417 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:03:06,620 INFO     [send_to_server.py:70] {'message': 'name: 97prabal created succesfully! but not send to other server'}
+2022-01-20:00:03:06,698 INFO     [send_to_server.py:84] Fetch result:  [('prabal', '83prabal', 0), ('prabal', '99prabal', 0), ('prabal', '67prabal', 0), ('prabal', '67prabal', 0), ('prabal', '97prabal', 0)]
+2022-01-20:00:03:06,698 INFO     [send_to_server.py:88] Sending remaining data
+2022-01-20:00:03:06,698 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:03:08,948 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:03:08,948 ERROR    [send_to_server.py:114] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 102, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data)
+TypeError: object Response can't be used in 'await' expression
+2022-01-20:00:03:08,948 INFO     [send_to_server.py:119] Host is down
+2022-01-20:00:04:32,275 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:04:32,494 INFO     [send_to_server.py:70] {'message': 'name: 56prabal created succesfully! but not send to other server'}
+2022-01-20:00:11:52,98 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:11:52,176 ERROR    [send_to_server.py:31] Error in connecting to database
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 23, in connect_to_database
+    mysql = await connector.connect(
+TypeError: object CMySQLConnection can't be used in 'await' expression
+2022-01-20:00:12:55,761 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:12:55,854 ERROR    [send_to_server.py:31] Error in connecting to database
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 23, in connect_to_database
+    mysql = await connector.connect(
+TypeError: object CMySQLConnection can't be used in 'await' expression
+2022-01-20:00:12:55,854 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:13:14,624 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:14:18,919 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:14:36,322 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:14:36,322 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:15:13,297 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:15:13,359 ERROR    [send_to_server.py:31] Error in connecting to database
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 23, in connect_to_database
+    mysql = await connector.connect(
+TypeError: object CMySQLConnection can't be used in 'await' expression
+2022-01-20:00:15:13,453 ERROR    [send_to_server.py:31] Error in connecting to database
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 23, in connect_to_database
+    mysql = await connector.connect(
+TypeError: object CMySQLConnection can't be used in 'await' expression
+2022-01-20:00:15:48,981 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:15:49,59 ERROR    [send_to_server.py:31] Error in connecting to database
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 23, in connect_to_database
+    mysql = await connector.connect(
+TypeError: object CMySQLConnection can't be used in 'await' expression
+2022-01-20:00:15:49,153 ERROR    [send_to_server.py:31] Error in connecting to database
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 23, in connect_to_database
+    mysql = await connector.connect(
+TypeError: object CMySQLConnection can't be used in 'await' expression
+2022-01-20:00:16:56,157 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:16:56,580 INFO     [send_to_server.py:87] {'message': 'name: 34prabal created succesfully! but not send to other server'}
+2022-01-20:00:18:56,135 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:19:46,752 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:19:46,986 INFO     [send_to_server.py:86] {'message': 'name: 89prabal created succesfully! but not send to other server'}
+2022-01-20:00:20:03,106 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:20:03,729 INFO     [send_to_server.py:86] {'message': 'name: 90prabal created succesfully! but not send to other server'}
+2022-01-20:00:20:03,791 INFO     [send_to_server.py:101] Fetch result:  [('prabal', '83prabal', 0), ('prabal', '99prabal', 0), ('prabal', '67prabal', 0), ('prabal', '67prabal', 0), ('prabal', '97prabal', 0), ('prabal', '56prabal', 0), ('prabal', '34prabal', 0), ('prabal', '89prabal', 0), ('prabal', '90prabal', 0)]
+2022-01-20:00:20:03,791 INFO     [send_to_server.py:105] Sending remaining data
+2022-01-20:00:20:03,806 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:20:06,88 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:20:06,88 ERROR    [send_to_server.py:131] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 119, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data)
+TypeError: object Response can't be used in 'await' expression
+2022-01-20:00:20:06,88 INFO     [send_to_server.py:136] Host is down
+2022-01-20:00:23:39,211 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:23:39,539 INFO     [send_to_server.py:88] {'message': 'name: 10prabal created succesfully! but not send to other server'}
+2022-01-20:00:23:39,570 INFO     [send_to_server.py:103] Fetch result:  [('prabal', '83prabal', 0), ('prabal', '99prabal', 0), ('prabal', '67prabal', 0), ('prabal', '67prabal', 0), ('prabal', '97prabal', 0), ('prabal', '56prabal', 0), ('prabal', '34prabal', 0), ('prabal', '89prabal', 0), ('prabal', '90prabal', 0), ('prabal', '10prabal', 0)]
+2022-01-20:00:23:39,570 INFO     [send_to_server.py:107] Sending remaining data
+2022-01-20:00:23:39,586 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:23:41,733 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:23:41,733 ERROR    [send_to_server.py:133] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 121, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data)
+TypeError: object Response can't be used in 'await' expression
+2022-01-20:00:23:41,733 INFO     [send_to_server.py:138] Host is down
+2022-01-20:00:27:21,934 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:27:21,934 ERROR    [send_to_server.py:33] Error in connecting to database
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 25, in connect_to_database
+    mysql = await aiomysql.connect(
+TypeError: connect() got an unexpected keyword argument 'database'
+2022-01-20:00:27:21,934 ERROR    [send_to_server.py:33] Error in connecting to database
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 25, in connect_to_database
+    mysql = await aiomysql.connect(
+TypeError: connect() got an unexpected keyword argument 'database'
+2022-01-20:00:28:17,112 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:28:17,112 ERROR    [send_to_server.py:33] Error in connecting to database
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 25, in connect_to_database
+    mysql = await aiomysql.connect(
+TypeError: connect() got an unexpected keyword argument 'database'
+2022-01-20:00:28:17,112 ERROR    [send_to_server.py:33] Error in connecting to database
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 25, in connect_to_database
+    mysql = await aiomysql.connect(
+TypeError: connect() got an unexpected keyword argument 'database'
+2022-01-20:00:29:11,522 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:29:11,616 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:29:11,616 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:30:35,983 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:30:35,999 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:30:35,999 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:30:36,171 INFO     [send_to_server.py:88] {'message': 'name: 74prabal created succesfully! but not send to other server'}
+2022-01-20:00:30:36,171 INFO     [send_to_server.py:103] Fetch result:  (('prabal', '83prabal', 0), ('prabal', '99prabal', 0), ('prabal', '67prabal', 0), ('prabal', '67prabal', 0), ('prabal', '97prabal', 0), ('prabal', '56prabal', 0), ('prabal', '34prabal', 0), ('prabal', '89prabal', 0), ('prabal', '90prabal', 0), ('prabal', '10prabal', 0))
+2022-01-20:00:30:36,171 INFO     [send_to_server.py:107] Sending remaining data
+2022-01-20:00:30:36,186 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:30:38,397 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:30:38,397 ERROR    [send_to_server.py:133] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 121, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data)
+TypeError: object Response can't be used in 'await' expression
+2022-01-20:00:30:38,397 INFO     [send_to_server.py:138] Host is down
+2022-01-20:00:31:51,106 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:31:51,122 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:31:51,122 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:31:51,137 INFO     [send_to_server.py:103] Fetch result:  (('prabal', '83prabal', 0), ('prabal', '99prabal', 0), ('prabal', '67prabal', 0), ('prabal', '67prabal', 0), ('prabal', '97prabal', 0), ('prabal', '56prabal', 0), ('prabal', '34prabal', 0), ('prabal', '89prabal', 0), ('prabal', '90prabal', 0), ('prabal', '10prabal', 0))
+2022-01-20:00:31:51,137 INFO     [send_to_server.py:107] Sending remaining data
+2022-01-20:00:31:51,137 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:31:53,262 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:31:53,262 ERROR    [send_to_server.py:133] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 121, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data)
+TypeError: object Response can't be used in 'await' expression
+2022-01-20:00:31:53,262 INFO     [send_to_server.py:138] Host is down
+2022-01-20:00:31:53,262 INFO     [send_to_server.py:88] {'message': 'name: 45prabal created succesfully! but not send to other server'}
+2022-01-20:00:32:42,176 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:32:42,207 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:32:42,207 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:32:42,238 INFO     [send_to_server.py:103] Fetch result:  (('prabal', '83prabal', 0), ('prabal', '99prabal', 0), ('prabal', '67prabal', 0), ('prabal', '67prabal', 0), ('prabal', '97prabal', 0), ('prabal', '56prabal', 0), ('prabal', '34prabal', 0), ('prabal', '89prabal', 0), ('prabal', '90prabal', 0), ('prabal', '10prabal', 0), ('prabal', '45prabal', 0))
+2022-01-20:00:32:42,238 INFO     [send_to_server.py:107] Sending remaining data
+2022-01-20:00:32:42,238 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:32:44,426 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:32:44,426 INFO     [send_to_server.py:125] Updating data
+2022-01-20:00:32:44,660 INFO     [send_to_server.py:88] {'message': 'name: 51prabal created succesfully! but not send to other server'}
+2022-01-20:00:32:44,769 INFO     [send_to_server.py:130] 83prabal Successfully send to other server
+2022-01-20:00:32:44,769 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:32:46,926 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:32:46,926 INFO     [send_to_server.py:125] Updating data
+2022-01-20:00:32:47,5 INFO     [send_to_server.py:130] 99prabal Successfully send to other server
+2022-01-20:00:32:47,5 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:32:49,145 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:32:49,145 INFO     [send_to_server.py:125] Updating data
+2022-01-20:00:32:49,254 INFO     [send_to_server.py:130] 67prabal Successfully send to other server
+2022-01-20:00:32:49,254 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:32:51,582 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:32:51,582 INFO     [send_to_server.py:125] Updating data
+2022-01-20:00:32:51,582 INFO     [send_to_server.py:130] 67prabal Successfully send to other server
+2022-01-20:00:32:51,598 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:32:53,742 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:32:53,742 INFO     [send_to_server.py:125] Updating data
+2022-01-20:00:32:54,86 INFO     [send_to_server.py:130] 97prabal Successfully send to other server
+2022-01-20:00:32:54,101 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:32:56,242 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:32:56,242 INFO     [send_to_server.py:125] Updating data
+2022-01-20:00:32:56,367 INFO     [send_to_server.py:130] 56prabal Successfully send to other server
+2022-01-20:00:32:56,367 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:32:58,476 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:32:58,476 INFO     [send_to_server.py:125] Updating data
+2022-01-20:00:32:58,632 INFO     [send_to_server.py:130] 34prabal Successfully send to other server
+2022-01-20:00:32:58,632 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:33:00,760 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:33:00,760 INFO     [send_to_server.py:125] Updating data
+2022-01-20:00:33:00,885 INFO     [send_to_server.py:130] 89prabal Successfully send to other server
+2022-01-20:00:33:00,885 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:33:03,57 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:33:03,72 INFO     [send_to_server.py:125] Updating data
+2022-01-20:00:33:03,322 INFO     [send_to_server.py:130] 90prabal Successfully send to other server
+2022-01-20:00:33:03,337 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:33:05,463 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:33:05,463 INFO     [send_to_server.py:125] Updating data
+2022-01-20:00:33:05,634 INFO     [send_to_server.py:130] 10prabal Successfully send to other server
+2022-01-20:00:33:05,634 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:33:07,775 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:33:07,775 INFO     [send_to_server.py:125] Updating data
+2022-01-20:00:33:07,884 INFO     [send_to_server.py:130] 45prabal Successfully send to other server
+2022-01-20:00:33:13,806 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:33:13,822 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:33:13,822 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:33:13,869 INFO     [send_to_server.py:103] Fetch result:  (('prabal', '51prabal', 0),)
+2022-01-20:00:33:13,869 INFO     [send_to_server.py:107] Sending remaining data
+2022-01-20:00:33:13,869 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:33:16,25 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:33:16,25 INFO     [send_to_server.py:125] Updating data
+2022-01-20:00:33:16,25 INFO     [send_to_server.py:88] {'message': 'name: 88prabal created succesfully! but not send to other server'}
+2022-01-20:00:33:16,275 INFO     [send_to_server.py:130] 51prabal Successfully send to other server
+2022-01-20:00:34:10,105 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:34:10,136 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:34:10,136 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:34:10,277 INFO     [send_to_server.py:102] Fetch result:  (('prabal', '88prabal', 0),)
+2022-01-20:00:34:10,292 INFO     [send_to_server.py:106] Sending remaining data
+2022-01-20:00:34:10,292 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:34:12,605 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:34:12,605 INFO     [send_to_server.py:124] Updating data
+2022-01-20:00:34:12,605 INFO     [send_to_server.py:87] {'message': 'name: 84prabal created succesfully! but not send to other server'}
+2022-01-20:00:34:12,761 INFO     [send_to_server.py:129] 88prabal Successfully send to other server
+2022-01-20:00:35:49,932 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:35:50,73 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:35:50,73 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:35:50,104 INFO     [send_to_server.py:101] Fetch result:  (('prabal', '84prabal', 0),)
+2022-01-20:00:35:50,104 INFO     [send_to_server.py:105] Sending remaining data
+2022-01-20:00:35:50,104 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:35:52,425 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:35:52,425 INFO     [send_to_server.py:123] Updating data
+2022-01-20:00:35:52,534 INFO     [send_to_server.py:86] {'message': 'name: 60prabal created succesfully! but not send to other server'}
+2022-01-20:00:35:52,637 INFO     [send_to_server.py:128] 84prabal Successfully send to other server
+2022-01-20:00:41:15,62 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:41:15,78 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:41:15,78 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:41:15,94 INFO     [send_to_server.py:101] Fetch result:  (('prabal', '60prabal', 0),)
+2022-01-20:00:41:15,94 INFO     [send_to_server.py:105] Sending remaining data
+2022-01-20:00:41:15,109 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:41:17,328 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:41:17,328 INFO     [send_to_server.py:130] Updating data
+2022-01-20:00:41:17,437 INFO     [send_to_server.py:86] {'message': 'name: 9prabal created succesfully! but not send to other server'}
+2022-01-20:00:41:17,484 INFO     [send_to_server.py:135] 60prabal Successfully send to other server
+2022-01-20:00:43:07,665 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:43:07,681 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:43:07,681 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:43:07,712 INFO     [send_to_server.py:101] Fetch result:  (('prabal', '9prabal', 0),)
+2022-01-20:00:43:07,712 INFO     [send_to_server.py:105] Sending remaining data
+2022-01-20:00:43:07,730 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:43:11,808 ERROR    [send_to_server.py:123] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000017AD5F883D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000017AD5F883D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 119, in send_remain_data
+    send_data = requests.post("http://localhost:5000/", json=data)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000017AD5F883D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2022-01-20:00:43:11,964 INFO     [send_to_server.py:136] Host is down
+2022-01-20:00:43:11,964 INFO     [send_to_server.py:137] 404
+2022-01-20:00:43:12,11 INFO     [send_to_server.py:86] {'message': 'name: 68prabal created succesfully! but not send to other server'}
+2022-01-20:00:44:06,918 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:44:06,918 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:44:06,933 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:44:06,996 INFO     [send_to_server.py:101] Fetch result:  (('prabal', '9prabal', 0), ('prabal', '68prabal', 0))
+2022-01-20:00:44:06,996 INFO     [send_to_server.py:105] Sending remaining data
+2022-01-20:00:44:06,996 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:44:11,60 ERROR    [send_to_server.py:123] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000026E8FB77460>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000026E8FB77460>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 119, in send_remain_data
+    send_data = requests.post("http://localhost:5000/", json=data)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000026E8FB77460>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2022-01-20:00:44:11,60 INFO     [send_to_server.py:136] Host is down
+2022-01-20:00:44:11,60 INFO     [send_to_server.py:137] 404
+2022-01-20:00:44:11,154 INFO     [send_to_server.py:86] {'message': 'name: 82prabal created succesfully! but not send to other server'}
+2022-01-20:00:46:26,474 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:46:26,505 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:46:26,630 INFO     [send_to_server.py:62] {'message': 'name: 15prabal created succesfully! but not send to other server'}
+2022-01-20:00:46:26,646 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:46:26,708 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '9prabal', 0), ('prabal', '68prabal', 0), ('prabal', '82prabal', 0), ('prabal', '15prabal', 0))
+2022-01-20:00:46:26,708 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:00:46:26,708 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:46:30,756 ERROR    [send_to_server.py:99] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000018B81A3FFA0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000018B81A3FFA0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 95, in send_remain_data
+    send_data = requests.post("http://localhost:5000/", json=data)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000018B81A3FFA0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2022-01-20:00:46:30,756 INFO     [send_to_server.py:112] Host is down
+2022-01-20:00:46:30,756 INFO     [send_to_server.py:113] 404
+2022-01-20:00:46:40,805 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:46:40,805 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:46:40,977 INFO     [send_to_server.py:62] {'message': 'name: 84prabal created succesfully! but not send to other server'}
+2022-01-20:00:48:22,287 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:48:22,303 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:48:22,397 INFO     [send_to_server.py:62] {'message': 'name: 33prabal created succesfully! but not send to other server'}
+2022-01-20:00:48:53,263 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:48:53,278 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:48:53,325 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '9prabal', 0), ('prabal', '68prabal', 0), ('prabal', '82prabal', 0), ('prabal', '15prabal', 0), ('prabal', '84prabal', 0), ('prabal', '33prabal', 0))
+2022-01-20:00:48:53,325 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:00:48:53,341 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:48:57,436 ERROR    [send_to_server.py:99] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001218DF9EDF0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001218DF9EDF0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 95, in send_remain_data
+    send_data = requests.post("http://localhost:5000/", json=data)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001218DF9EDF0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2022-01-20:00:48:57,436 INFO     [send_to_server.py:112] Host is down
+2022-01-20:00:48:57,436 INFO     [send_to_server.py:113] 404
+2022-01-20:00:48:57,436 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:48:57,467 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:48:57,607 INFO     [send_to_server.py:62] {'message': 'name: 97prabal created succesfully! but not send to other server'}
+2022-01-20:00:49:26,503 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:49:26,519 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:49:26,581 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '9prabal', 0), ('prabal', '68prabal', 0), ('prabal', '82prabal', 0), ('prabal', '15prabal', 0), ('prabal', '84prabal', 0), ('prabal', '33prabal', 0), ('prabal', '97prabal', 0))
+2022-01-20:00:49:26,581 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:00:49:26,597 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:49:30,676 ERROR    [send_to_server.py:99] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001E5B193EE50>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001E5B193EE50>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 95, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001E5B193EE50>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2022-01-20:00:49:30,676 INFO     [send_to_server.py:112] Host is down
+2022-01-20:00:49:30,676 INFO     [send_to_server.py:113] 404
+2022-01-20:00:49:30,676 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:49:30,676 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:49:30,863 INFO     [send_to_server.py:62] {'message': 'name: 89prabal created succesfully! but not send to other server'}
+2022-01-20:00:52:53,837 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:52:53,853 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:52:53,915 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '9prabal', 0), ('prabal', '68prabal', 0), ('prabal', '82prabal', 0), ('prabal', '15prabal', 0), ('prabal', '84prabal', 0), ('prabal', '33prabal', 0), ('prabal', '97prabal', 0), ('prabal', '89prabal', 0))
+2022-01-20:00:52:53,915 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:00:52:53,931 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:52:55,946 ERROR    [send_to_server.py:99] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 179, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x000002C9295CEE50>, 'Connection to localhost timed out. (connect timeout=1)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000002C9295CEE50>, 'Connection to localhost timed out. (connect timeout=1)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 95, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data ,timeout=1)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000002C9295CEE50>, 'Connection to localhost timed out. (connect timeout=1)'))
+2022-01-20:00:52:55,946 INFO     [send_to_server.py:112] Host is down
+2022-01-20:00:52:55,946 INFO     [send_to_server.py:113] 404
+2022-01-20:00:52:55,946 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:52:55,946 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:52:56,149 INFO     [send_to_server.py:62] {'message': 'name: 21prabal created succesfully! but not send to other server'}
+2022-01-20:00:53:08,73 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:53:08,89 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:53:08,105 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '9prabal', 0), ('prabal', '68prabal', 0), ('prabal', '82prabal', 0), ('prabal', '15prabal', 0), ('prabal', '84prabal', 0), ('prabal', '33prabal', 0), ('prabal', '97prabal', 0), ('prabal', '89prabal', 0), ('prabal', '21prabal', 0))
+2022-01-20:00:53:08,105 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:00:53:08,120 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:53:08,355 ERROR    [send_to_server.py:99] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 179, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x000002309FB3DE80>, 'Connection to localhost timed out. (connect timeout=0.1)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000002309FB3DE80>, 'Connection to localhost timed out. (connect timeout=0.1)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 95, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data ,timeout=0.1)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000002309FB3DE80>, 'Connection to localhost timed out. (connect timeout=0.1)'))
+2022-01-20:00:53:08,355 INFO     [send_to_server.py:112] Host is down
+2022-01-20:00:53:08,355 INFO     [send_to_server.py:113] 404
+2022-01-20:00:53:08,355 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:53:08,370 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:53:08,558 INFO     [send_to_server.py:62] {'message': 'name: 12prabal created succesfully! but not send to other server'}
+2022-01-20:00:53:23,763 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:53:23,794 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:53:23,826 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '9prabal', 0), ('prabal', '68prabal', 0), ('prabal', '82prabal', 0), ('prabal', '15prabal', 0), ('prabal', '84prabal', 0), ('prabal', '33prabal', 0), ('prabal', '97prabal', 0), ('prabal', '89prabal', 0), ('prabal', '21prabal', 0), ('prabal', '12prabal', 0))
+2022-01-20:00:53:23,826 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:00:53:23,841 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:53:24,841 ERROR    [send_to_server.py:99] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 179, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x000001C73D03EE50>, 'Connection to localhost timed out. (connect timeout=0.5)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001C73D03EE50>, 'Connection to localhost timed out. (connect timeout=0.5)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 95, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data ,timeout=0.5)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001C73D03EE50>, 'Connection to localhost timed out. (connect timeout=0.5)'))
+2022-01-20:00:53:24,841 INFO     [send_to_server.py:112] Host is down
+2022-01-20:00:53:24,841 INFO     [send_to_server.py:113] 404
+2022-01-20:00:53:24,841 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:53:24,841 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:53:25,13 INFO     [send_to_server.py:62] {'message': 'name: 52prabal created succesfully! but not send to other server'}
+2022-01-20:00:54:49,252 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:54:49,268 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:54:49,330 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '9prabal', 0), ('prabal', '68prabal', 0), ('prabal', '82prabal', 0), ('prabal', '15prabal', 0), ('prabal', '84prabal', 0), ('prabal', '33prabal', 0), ('prabal', '97prabal', 0), ('prabal', '89prabal', 0), ('prabal', '21prabal', 0), ('prabal', '12prabal', 0), ('prabal', '52prabal', 0))
+2022-01-20:00:54:49,330 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:00:54:49,330 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:54:50,330 ERROR    [send_to_server.py:99] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 179, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x000001824DF5DEE0>, 'Connection to localhost timed out. (connect timeout=0.5)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001824DF5DEE0>, 'Connection to localhost timed out. (connect timeout=0.5)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 95, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data ,timeout=0.5)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001824DF5DEE0>, 'Connection to localhost timed out. (connect timeout=0.5)'))
+2022-01-20:00:54:50,330 INFO     [send_to_server.py:112] Host is down
+2022-01-20:00:54:50,330 INFO     [send_to_server.py:113] 404
+2022-01-20:00:54:51,331 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:54:51,331 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:54:51,471 INFO     [send_to_server.py:62] {'message': 'name: 21prabal created succesfully! but not send to other server'}
+2022-01-20:00:55:30,796 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:55:30,796 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:55:30,905 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '9prabal', 0), ('prabal', '68prabal', 0), ('prabal', '82prabal', 0), ('prabal', '15prabal', 0), ('prabal', '84prabal', 0), ('prabal', '33prabal', 0), ('prabal', '97prabal', 0), ('prabal', '89prabal', 0), ('prabal', '21prabal', 0), ('prabal', '12prabal', 0), ('prabal', '52prabal', 0), ('prabal', '21prabal', 0))
+2022-01-20:00:55:30,905 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:00:55:30,921 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:55:31,936 ERROR    [send_to_server.py:99] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 179, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x000002084905DF40>, 'Connection to localhost timed out. (connect timeout=0.5)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000002084905DF40>, 'Connection to localhost timed out. (connect timeout=0.5)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 95, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data ,timeout=0.5)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000002084905DF40>, 'Connection to localhost timed out. (connect timeout=0.5)'))
+2022-01-20:00:55:31,936 INFO     [send_to_server.py:112] Host is down
+2022-01-20:00:55:31,936 INFO     [send_to_server.py:113] 404
+2022-01-20:00:55:32,952 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:55:32,952 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:55:33,296 INFO     [send_to_server.py:62] {'message': 'name: 56prabal created succesfully! but not send to other server'}
+2022-01-20:00:56:14,2 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:56:14,2 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:56:14,49 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '9prabal', 0), ('prabal', '68prabal', 0), ('prabal', '82prabal', 0), ('prabal', '15prabal', 0), ('prabal', '84prabal', 0), ('prabal', '33prabal', 0), ('prabal', '97prabal', 0), ('prabal', '89prabal', 0), ('prabal', '21prabal', 0), ('prabal', '12prabal', 0), ('prabal', '52prabal', 0), ('prabal', '21prabal', 0), ('prabal', '56prabal', 0))
+2022-01-20:00:56:14,49 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:00:56:14,65 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:56:14,779 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:56:14,811 ERROR    [send_to_server.py:99] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 95, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data ,timeout=0.5)
+TypeError: object Response can't be used in 'await' expression
+2022-01-20:00:56:14,811 INFO     [send_to_server.py:112] Host is down
+2022-01-20:00:56:14,811 INFO     [send_to_server.py:113] 404
+2022-01-20:00:56:15,811 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:56:15,842 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:56:15,983 INFO     [send_to_server.py:62] {'message': 'name: 63prabal created succesfully! but not send to other server'}
+2022-01-20:00:56:27,745 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:56:27,745 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:56:27,761 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '9prabal', 0), ('prabal', '68prabal', 0), ('prabal', '82prabal', 0), ('prabal', '15prabal', 0), ('prabal', '84prabal', 0), ('prabal', '33prabal', 0), ('prabal', '97prabal', 0), ('prabal', '89prabal', 0), ('prabal', '21prabal', 0), ('prabal', '12prabal', 0), ('prabal', '52prabal', 0), ('prabal', '21prabal', 0), ('prabal', '56prabal', 0), ('prabal', '63prabal', 0))
+2022-01-20:00:56:27,761 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:00:56:27,761 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:56:28,386 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:56:28,386 ERROR    [send_to_server.py:99] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 95, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data ,timeout=0.5)
+TypeError: object Response can't be used in 'await' expression
+2022-01-20:00:56:28,386 INFO     [send_to_server.py:112] Host is down
+2022-01-20:00:56:28,386 INFO     [send_to_server.py:113] 404
+2022-01-20:00:56:29,386 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:56:29,386 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:56:29,479 INFO     [send_to_server.py:62] {'message': 'name: 75prabal created succesfully! but not send to other server'}
+2022-01-20:00:56:44,372 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:56:44,372 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:56:44,434 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '9prabal', 0), ('prabal', '68prabal', 0), ('prabal', '82prabal', 0), ('prabal', '15prabal', 0), ('prabal', '84prabal', 0), ('prabal', '33prabal', 0), ('prabal', '97prabal', 0), ('prabal', '89prabal', 0), ('prabal', '21prabal', 0), ('prabal', '12prabal', 0), ('prabal', '52prabal', 0), ('prabal', '21prabal', 0), ('prabal', '56prabal', 0), ('prabal', '63prabal', 0), ('prabal', '75prabal', 0))
+2022-01-20:00:56:44,434 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:00:56:44,450 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:56:45,544 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:56:45,544 ERROR    [send_to_server.py:99] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 95, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data ,timeout=1)
+TypeError: object Response can't be used in 'await' expression
+2022-01-20:00:56:45,544 INFO     [send_to_server.py:112] Host is down
+2022-01-20:00:56:45,544 INFO     [send_to_server.py:113] 404
+2022-01-20:00:56:46,559 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:56:46,559 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:56:46,934 INFO     [send_to_server.py:62] {'message': 'name: 36prabal created succesfully! but not send to other server'}
+2022-01-20:00:56:57,170 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:56:57,170 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:56:57,170 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '9prabal', 0), ('prabal', '68prabal', 0), ('prabal', '82prabal', 0), ('prabal', '15prabal', 0), ('prabal', '84prabal', 0), ('prabal', '33prabal', 0), ('prabal', '97prabal', 0), ('prabal', '89prabal', 0), ('prabal', '21prabal', 0), ('prabal', '12prabal', 0), ('prabal', '52prabal', 0), ('prabal', '21prabal', 0), ('prabal', '56prabal', 0), ('prabal', '63prabal', 0), ('prabal', '75prabal', 0), ('prabal', '36prabal', 0))
+2022-01-20:00:56:57,170 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:00:56:57,186 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:56:59,437 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:56:59,437 ERROR    [send_to_server.py:99] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 95, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data)
+TypeError: object Response can't be used in 'await' expression
+2022-01-20:00:56:59,437 INFO     [send_to_server.py:112] Host is down
+2022-01-20:00:56:59,437 INFO     [send_to_server.py:113] 404
+2022-01-20:00:57:00,437 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:57:00,437 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:57:00,562 INFO     [send_to_server.py:62] {'message': 'name: 64prabal created succesfully! but not send to other server'}
+2022-01-20:00:57:24,691 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:57:24,691 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:57:24,723 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '9prabal', 0), ('prabal', '68prabal', 0), ('prabal', '82prabal', 0), ('prabal', '15prabal', 0), ('prabal', '84prabal', 0), ('prabal', '33prabal', 0), ('prabal', '97prabal', 0), ('prabal', '89prabal', 0), ('prabal', '21prabal', 0), ('prabal', '12prabal', 0), ('prabal', '52prabal', 0), ('prabal', '21prabal', 0), ('prabal', '56prabal', 0), ('prabal', '63prabal', 0), ('prabal', '75prabal', 0), ('prabal', '36prabal', 0), ('prabal', '64prabal', 0))
+2022-01-20:00:57:24,723 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:00:57:24,723 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:57:26,816 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:57:26,816 ERROR    [send_to_server.py:99] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 95, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data)
+TypeError: object Response can't be used in 'await' expression
+2022-01-20:00:57:26,816 INFO     [send_to_server.py:112] Host is down
+2022-01-20:00:57:26,816 INFO     [send_to_server.py:113] 404
+2022-01-20:00:57:27,832 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:57:27,848 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:57:27,973 INFO     [send_to_server.py:62] {'message': 'name: 54prabal created succesfully! but not send to other server'}
+2022-01-20:00:58:11,340 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:58:11,355 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:58:11,387 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '9prabal', 0), ('prabal', '68prabal', 0), ('prabal', '82prabal', 0), ('prabal', '15prabal', 0), ('prabal', '84prabal', 0), ('prabal', '33prabal', 0), ('prabal', '97prabal', 0), ('prabal', '89prabal', 0), ('prabal', '21prabal', 0), ('prabal', '12prabal', 0), ('prabal', '52prabal', 0), ('prabal', '21prabal', 0), ('prabal', '56prabal', 0), ('prabal', '63prabal', 0), ('prabal', '75prabal', 0), ('prabal', '36prabal', 0), ('prabal', '64prabal', 0), ('prabal', '54prabal', 0))
+2022-01-20:00:58:11,387 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:00:58:11,387 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:58:13,653 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:58:13,653 ERROR    [send_to_server.py:100] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 95, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data)
+TypeError: object Response can't be used in 'await' expression
+2022-01-20:00:58:13,653 INFO     [send_to_server.py:113] Host is down
+2022-01-20:00:58:13,653 INFO     [send_to_server.py:114] 404
+2022-01-20:00:58:14,653 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:58:14,653 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:58:14,793 INFO     [send_to_server.py:62] {'message': 'name: 29prabal created succesfully! but not send to other server'}
+2022-01-20:00:58:24,967 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:58:24,983 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:58:24,983 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '9prabal', 0), ('prabal', '68prabal', 0), ('prabal', '82prabal', 0), ('prabal', '15prabal', 0), ('prabal', '84prabal', 0), ('prabal', '33prabal', 0), ('prabal', '97prabal', 0), ('prabal', '89prabal', 0), ('prabal', '21prabal', 0), ('prabal', '12prabal', 0), ('prabal', '52prabal', 0), ('prabal', '21prabal', 0), ('prabal', '56prabal', 0), ('prabal', '63prabal', 0), ('prabal', '75prabal', 0), ('prabal', '36prabal', 0), ('prabal', '64prabal', 0), ('prabal', '54prabal', 0), ('prabal', '29prabal', 0))
+2022-01-20:00:58:24,983 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:00:58:24,983 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:58:27,154 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:58:27,154 ERROR    [send_to_server.py:100] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 95, in send_remain_data
+    send_data = await requests.post("http://localhost:5000/", json=data)
+TypeError: object Response can't be used in 'await' expression
+2022-01-20:00:58:27,170 INFO     [send_to_server.py:113] Host is down
+2022-01-20:00:58:27,170 INFO     [send_to_server.py:114] 404
+2022-01-20:00:58:28,170 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:58:28,170 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:58:28,295 INFO     [send_to_server.py:62] {'message': 'name: 7prabal created succesfully! but not send to other server'}
+2022-01-20:00:58:44,635 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:58:44,635 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:58:44,666 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '9prabal', 0), ('prabal', '68prabal', 0), ('prabal', '82prabal', 0), ('prabal', '15prabal', 0), ('prabal', '84prabal', 0), ('prabal', '33prabal', 0), ('prabal', '97prabal', 0), ('prabal', '89prabal', 0), ('prabal', '21prabal', 0), ('prabal', '12prabal', 0), ('prabal', '52prabal', 0), ('prabal', '21prabal', 0), ('prabal', '56prabal', 0), ('prabal', '63prabal', 0), ('prabal', '75prabal', 0), ('prabal', '36prabal', 0), ('prabal', '64prabal', 0), ('prabal', '54prabal', 0), ('prabal', '29prabal', 0), ('prabal', '7prabal', 0))
+2022-01-20:00:58:44,666 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:00:58:44,666 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:58:46,807 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:58:46,807 INFO     [send_to_server.py:106] Updating data
+2022-01-20:00:58:46,916 INFO     [send_to_server.py:111] 9prabal Successfully send to other server
+2022-01-20:00:58:46,932 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:58:49,245 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:58:49,245 INFO     [send_to_server.py:106] Updating data
+2022-01-20:00:58:49,495 INFO     [send_to_server.py:111] 68prabal Successfully send to other server
+2022-01-20:00:58:49,495 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:58:51,776 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:58:51,776 INFO     [send_to_server.py:106] Updating data
+2022-01-20:00:58:52,10 INFO     [send_to_server.py:111] 82prabal Successfully send to other server
+2022-01-20:00:58:52,26 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:58:54,230 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:58:54,230 INFO     [send_to_server.py:106] Updating data
+2022-01-20:00:58:54,424 INFO     [send_to_server.py:111] 15prabal Successfully send to other server
+2022-01-20:00:58:54,427 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:58:56,571 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:58:56,571 INFO     [send_to_server.py:106] Updating data
+2022-01-20:00:58:56,696 INFO     [send_to_server.py:111] 84prabal Successfully send to other server
+2022-01-20:00:58:56,696 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:58:58,821 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:58:58,821 INFO     [send_to_server.py:106] Updating data
+2022-01-20:00:58:58,993 INFO     [send_to_server.py:111] 33prabal Successfully send to other server
+2022-01-20:00:58:58,993 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:59:01,103 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:59:01,103 INFO     [send_to_server.py:106] Updating data
+2022-01-20:00:59:01,259 INFO     [send_to_server.py:111] 97prabal Successfully send to other server
+2022-01-20:00:59:01,259 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:59:03,384 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:59:03,384 INFO     [send_to_server.py:106] Updating data
+2022-01-20:00:59:03,525 INFO     [send_to_server.py:111] 89prabal Successfully send to other server
+2022-01-20:00:59:03,540 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:59:05,665 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:59:05,665 INFO     [send_to_server.py:106] Updating data
+2022-01-20:00:59:05,775 INFO     [send_to_server.py:111] 21prabal Successfully send to other server
+2022-01-20:00:59:05,775 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:59:08,56 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:59:08,56 INFO     [send_to_server.py:106] Updating data
+2022-01-20:00:59:08,214 INFO     [send_to_server.py:111] 12prabal Successfully send to other server
+2022-01-20:00:59:08,214 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:59:10,370 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:59:10,370 INFO     [send_to_server.py:106] Updating data
+2022-01-20:00:59:10,542 INFO     [send_to_server.py:111] 52prabal Successfully send to other server
+2022-01-20:00:59:10,542 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:59:12,651 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:59:12,651 INFO     [send_to_server.py:106] Updating data
+2022-01-20:00:59:12,651 INFO     [send_to_server.py:111] 21prabal Successfully send to other server
+2022-01-20:00:59:12,651 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:59:14,807 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:59:14,807 INFO     [send_to_server.py:106] Updating data
+2022-01-20:00:59:14,917 INFO     [send_to_server.py:111] 56prabal Successfully send to other server
+2022-01-20:00:59:14,917 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:59:17,135 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:59:17,135 INFO     [send_to_server.py:106] Updating data
+2022-01-20:00:59:17,229 INFO     [send_to_server.py:111] 63prabal Successfully send to other server
+2022-01-20:00:59:17,229 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:59:19,434 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:59:19,434 INFO     [send_to_server.py:106] Updating data
+2022-01-20:00:59:19,543 INFO     [send_to_server.py:111] 75prabal Successfully send to other server
+2022-01-20:00:59:19,543 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:59:21,700 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:59:21,700 INFO     [send_to_server.py:106] Updating data
+2022-01-20:00:59:21,840 INFO     [send_to_server.py:111] 36prabal Successfully send to other server
+2022-01-20:00:59:21,840 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:59:24,44 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:59:24,44 INFO     [send_to_server.py:106] Updating data
+2022-01-20:00:59:24,200 INFO     [send_to_server.py:111] 64prabal Successfully send to other server
+2022-01-20:00:59:24,215 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:59:26,387 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:59:26,387 INFO     [send_to_server.py:106] Updating data
+2022-01-20:00:59:26,637 INFO     [send_to_server.py:111] 54prabal Successfully send to other server
+2022-01-20:00:59:26,637 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:59:28,793 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:59:28,793 INFO     [send_to_server.py:106] Updating data
+2022-01-20:00:59:28,887 INFO     [send_to_server.py:111] 29prabal Successfully send to other server
+2022-01-20:00:59:28,887 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:00:59:30,981 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:00:59:30,997 INFO     [send_to_server.py:106] Updating data
+2022-01-20:00:59:31,278 INFO     [send_to_server.py:111] 7prabal Successfully send to other server
+2022-01-20:00:59:31,278 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:00:59:31,278 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:00:59:31,622 INFO     [send_to_server.py:62] {'message': 'name: 1prabal created succesfully! but not send to other server'}
+2022-01-20:01:00:50,496 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:01:00:50,512 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:00:50,574 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '1prabal', 0),)
+2022-01-20:01:00:50,574 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:01:00:50,574 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:01:00:52,715 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:01:00:52,715 INFO     [send_to_server.py:106] Updating data
+2022-01-20:01:00:52,824 INFO     [send_to_server.py:111] 1prabal Successfully send to other server
+2022-01-20:01:00:52,824 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:01:00:52,824 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:00:53,27 INFO     [send_to_server.py:62] {'message': 'name: 48prabal created succesfully! but not send to other server'}
+2022-01-20:01:01:19,589 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:01:01:19,605 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:01:19,777 INFO     [send_to_server.py:62] {'message': 'name: 14prabal created succesfully! but not send to other server'}
+2022-01-20:01:02:21,35 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:01:02:21,66 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:02:21,113 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '48prabal', 0), ('prabal', '14prabal', 0))
+2022-01-20:01:02:21,113 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:01:02:21,128 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:01:02:23,349 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:01:02:23,349 INFO     [send_to_server.py:106] Updating data
+2022-01-20:01:02:23,458 INFO     [send_to_server.py:111] 48prabal Successfully send to other server
+2022-01-20:01:02:23,474 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:01:02:25,740 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:01:02:25,740 INFO     [send_to_server.py:106] Updating data
+2022-01-20:01:02:25,943 INFO     [send_to_server.py:111] 14prabal Successfully send to other server
+2022-01-20:01:03:06,951 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:01:03:06,982 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:03:06,982 INFO     [send_to_server.py:77] Fetch result:  ()
+2022-01-20:01:03:45,317 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:01:03:45,332 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:03:45,399 INFO     [send_to_server.py:62] {'message': 'name: 20prabal created succesfully! but not send to other server'}
+2022-01-20:01:03:53,635 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:01:03:53,650 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:03:53,713 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '20prabal', 0),)
+2022-01-20:01:03:53,713 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:01:03:53,713 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:01:03:55,885 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:01:03:55,885 INFO     [send_to_server.py:106] Updating data
+2022-01-20:01:03:56,41 INFO     [send_to_server.py:111] 20prabal Successfully send to other server
+2022-01-20:01:04:44,938 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:01:04:44,954 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:04:45,79 INFO     [send_to_server.py:62] {'message': 'name: 42prabal created succesfully! but not send to other server'}
+2022-01-20:01:04:52,485 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:01:04:52,500 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:04:52,532 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '42prabal', 0),)
+2022-01-20:01:04:52,532 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:01:04:52,547 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:01:04:56,610 ERROR    [send_to_server.py:100] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001978264CF40>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001978264CF40>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 95, in send_remain_data
+    send_data = requests.post("http://localhost:5000/", json=data)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001978264CF40>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2022-01-20:01:04:56,610 INFO     [send_to_server.py:113] Host is down
+2022-01-20:01:04:56,610 INFO     [send_to_server.py:114] Status Code: 404
+2022-01-20:01:05:31,90 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:01:05:31,106 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:05:31,108 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '42prabal', 0),)
+2022-01-20:01:05:31,108 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:01:05:31,114 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:01:05:35,177 ERROR    [send_to_server.py:100] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000019C12D16130>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000019C12D16130>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 95, in send_remain_data
+    send_data = requests.post("http://localhost:5000/", json=data)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000019C12D16130>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2022-01-20:01:05:35,177 INFO     [send_to_server.py:113] Host is down
+2022-01-20:01:05:35,177 INFO     [send_to_server.py:114] Status Code: 404
+2022-01-20:01:08:16,999 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:01:08:17,15 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:08:17,15 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '42prabal', 0),)
+2022-01-20:01:08:17,15 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:01:08:17,15 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:01:08:21,93 ERROR    [send_to_server.py:100] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001923DD84430>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001923DD84430>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 95, in send_remain_data
+    send_data = requests.post("http://localhost:5000/", json=data)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001923DD84430>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2022-01-20:01:08:21,93 INFO     [send_to_server.py:113] Host is down
+2022-01-20:01:08:21,93 INFO     [send_to_server.py:114] Status Code: 404
+2022-01-20:01:08:53,992 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:01:08:54,8 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:08:54,8 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '42prabal', 0),)
+2022-01-20:01:08:54,8 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:01:08:54,8 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:01:08:58,102 ERROR    [send_to_server.py:100] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000019F06BD5280>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000019F06BD5280>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 95, in send_remain_data
+    send_data = requests.post("http://localhost:5000/", json=data)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000019F06BD5280>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2022-01-20:01:08:58,102 INFO     [send_to_server.py:113] Host is down
+2022-01-20:01:08:58,102 INFO     [send_to_server.py:114] Status Code: 404
+2022-01-20:01:08:58,133 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:08:58,227 INFO     [send_to_server.py:62] {'message': 'name: 84prabal created succesfully! but not send to other server'}
+2022-01-20:01:10:00,62 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:01:10:00,77 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:10:00,93 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '42prabal', 0), ('prabal', '84prabal', 0))
+2022-01-20:01:10:00,93 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:01:10:00,93 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:01:10:02,296 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:01:10:02,296 INFO     [send_to_server.py:106] Updating data
+2022-01-20:01:10:02,593 INFO     [send_to_server.py:111] 42prabal Successfully send to other server
+2022-01-20:01:10:02,593 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:01:10:04,718 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:01:10:04,718 INFO     [send_to_server.py:106] Updating data
+2022-01-20:01:10:04,827 INFO     [send_to_server.py:111] 84prabal Successfully send to other server
+2022-01-20:01:10:04,827 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:10:04,921 INFO     [send_to_server.py:62] {'message': 'name: 90prabal created succesfully! but not send to other server'}
+2022-01-20:01:10:29,113 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:01:10:29,113 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:10:29,129 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '90prabal', 0),)
+2022-01-20:01:10:29,129 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:01:10:29,144 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:01:10:31,269 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:01:10:31,269 INFO     [send_to_server.py:106] Updating data
+2022-01-20:01:10:31,519 INFO     [send_to_server.py:111] 90prabal Successfully send to other server
+2022-01-20:01:10:31,519 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:10:31,801 INFO     [send_to_server.py:62] {'message': 'name: 25prabal created succesfully! but not send to other server'}
+2022-01-20:01:14:03,119 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:01:14:03,244 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:14:03,244 INFO     [send_to_server.py:77] Fetch result:  (('prabal', '25prabal', 0),)
+2022-01-20:01:14:03,244 INFO     [send_to_server.py:81] Sending remaining data
+2022-01-20:01:14:03,307 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:01:14:05,557 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:01:14:05,557 INFO     [send_to_server.py:106] Updating data
+2022-01-20:01:14:05,682 INFO     [send_to_server.py:111] 25prabal Successfully send to other server
+2022-01-20:01:14:05,682 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:14:06,260 INFO     [send_to_server.py:62] {'message': 'name: 38prabal created succesfully! but not send to other server'}
+2022-01-20:01:14:26,843 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:01:14:26,879 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:14:27,422 INFO     [send_to_server.py:78] Fetch result:  (('prabal', '38prabal', 0),)
+2022-01-20:01:14:27,422 INFO     [send_to_server.py:82] Sending remaining data
+2022-01-20:01:14:27,438 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:01:14:29,638 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:01:14:29,638 INFO     [send_to_server.py:107] Updating data
+2022-01-20:01:14:29,864 INFO     [send_to_server.py:112] 38prabal Successfully send to other server
+2022-01-20:01:14:29,928 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:14:30,162 INFO     [send_to_server.py:63] {'message': 'name: 97prabal created succesfully! but not send to other server'}
+2022-01-20:01:15:06,93 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:01:15:06,140 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:15:06,297 INFO     [send_to_server.py:78] Fetch result:  (('prabal', '97prabal', 0),)
+2022-01-20:01:15:06,297 INFO     [send_to_server.py:82] Sending remaining data
+2022-01-20:01:15:06,297 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:01:15:07,15 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:01:15:07,15 INFO     [send_to_server.py:107] Updating data
+2022-01-20:01:15:07,93 INFO     [send_to_server.py:112] 97prabal Successfully send to other server
+2022-01-20:01:15:07,125 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:15:07,343 INFO     [send_to_server.py:63] {'message': 'name: 32prabal created succesfully! but not send to other server'}
+2022-01-20:01:15:17,573 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:01:15:17,573 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:15:17,682 INFO     [send_to_server.py:78] Fetch result:  (('prabal', '32prabal', 0),)
+2022-01-20:01:15:17,682 INFO     [send_to_server.py:82] Sending remaining data
+2022-01-20:01:15:17,682 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:01:15:18,292 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:01:15:18,292 INFO     [send_to_server.py:107] Updating data
+2022-01-20:01:15:18,463 INFO     [send_to_server.py:112] 32prabal Successfully send to other server
+2022-01-20:01:15:18,463 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:15:18,635 INFO     [send_to_server.py:63] {'message': 'name: 54prabal created succesfully! but not send to other server'}
+2022-01-20:01:15:41,840 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:01:15:41,856 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:15:42,59 INFO     [send_to_server.py:63] {'message': 'name: 72prabal created succesfully! but not send to other server'}
+2022-01-20:01:15:42,59 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:15:42,199 INFO     [send_to_server.py:78] Fetch result:  (('prabal', '54prabal', 0), ('prabal', '72prabal', 0))
+2022-01-20:01:15:42,199 INFO     [send_to_server.py:82] Sending remaining data
+2022-01-20:01:15:42,199 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:01:15:42,840 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:01:15:42,840 INFO     [send_to_server.py:107] Updating data
+2022-01-20:01:15:43,28 INFO     [send_to_server.py:112] 54prabal Successfully send to other server
+2022-01-20:01:15:43,28 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:01:15:43,733 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:01:15:43,733 INFO     [send_to_server.py:107] Updating data
+2022-01-20:01:15:43,858 INFO     [send_to_server.py:112] 72prabal Successfully send to other server
+2022-01-20:01:16:24,616 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:01:16:24,631 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:16:24,756 INFO     [send_to_server.py:63] {'message': 'name: 98prabal created succesfully! but not send to other server'}
+2022-01-20:01:16:24,756 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:01:16:24,772 INFO     [send_to_server.py:78] Fetch result:  (('prabal', '98prabal', 0),)
+2022-01-20:01:16:24,772 INFO     [send_to_server.py:82] Sending remaining data
+2022-01-20:01:16:24,772 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:01:16:25,444 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:01:16:25,460 INFO     [send_to_server.py:107] Updating data
+2022-01-20:01:16:25,663 INFO     [send_to_server.py:112] 98prabal Successfully send to other server
