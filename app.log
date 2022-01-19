@@ -898,3 +898,44 @@
 2022-01-20:01:16:25,272 INFO     [app.py:38] {'name': 'prabal', 'username': '98prabal'}
 2022-01-20:01:16:25,444 INFO     [app.py:52] Successully saved data
 2022-01-20:01:16:25,444 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 01:16:25] "POST / HTTP/1.1" 200 -
+2022-01-20:01:22:09,556 INFO     [_internal.py:225]  * Detected change in 'C:\\Users\\hp\\flask_apps\\data_prac\\send_to_server.py', reloading
+2022-01-20:01:22:09,619 INFO     [_internal.py:225]  * Restarting with stat
+2022-01-20:01:22:10,431 INFO     [app.py:15] Starting app
+2022-01-20:01:22:10,431 INFO     [app.py:19] Connecting to database
+2022-01-20:01:22:10,587 INFO     [app.py:25] Connected to database
+2022-01-20:01:22:10,603 WARNING  [_internal.py:225]  * Debugger is active!
+2022-01-20:01:22:10,603 INFO     [_internal.py:225]  * Debugger PIN: 552-907-874
+2022-01-20:01:22:10,650 INFO     [_internal.py:225]  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-01-20:01:23:20,307 INFO     [_internal.py:225]  * Detected change in 'C:\\Users\\hp\\flask_apps\\data_prac\\send_to_server.py', reloading
+2022-01-20:01:23:20,369 INFO     [_internal.py:225]  * Restarting with stat
+2022-01-20:01:23:21,354 INFO     [app.py:15] Starting app
+2022-01-20:01:23:21,354 INFO     [app.py:19] Connecting to database
+2022-01-20:01:23:21,494 INFO     [app.py:25] Connected to database
+2022-01-20:01:23:21,494 WARNING  [_internal.py:225]  * Debugger is active!
+2022-01-20:01:23:21,510 INFO     [_internal.py:225]  * Debugger PIN: 552-907-874
+2022-01-20:01:23:21,541 INFO     [_internal.py:225]  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-01-20:01:23:28,70 INFO     [app.py:38] {'name': 'prabal', 'username': '76prabal'}
+2022-01-20:01:23:28,148 INFO     [app.py:52] Successully saved data
+2022-01-20:01:23:28,148 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 01:23:28] "POST / HTTP/1.1" 200 -
+2022-01-20:01:25:20,260 INFO     [app.py:38] {'name': 'prabal', 'username': '85prabal'}
+2022-01-20:01:25:20,463 INFO     [app.py:52] Successully saved data
+2022-01-20:01:25:20,463 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 01:25:20] "POST / HTTP/1.1" 200 -
+2022-01-20:01:25:35,480 INFO     [_internal.py:225]  * Detected change in 'C:\\Users\\hp\\flask_apps\\data_prac\\send_to_server.py', reloading
+2022-01-20:01:25:35,542 INFO     [_internal.py:225]  * Restarting with stat
+2022-01-20:01:25:36,27 INFO     [app.py:15] Starting app
+2022-01-20:01:25:36,27 INFO     [app.py:19] Connecting to database
+2022-01-20:01:25:36,42 INFO     [app.py:25] Connected to database
+2022-01-20:01:25:36,58 WARNING  [_internal.py:225]  * Debugger is active!
+2022-01-20:01:25:36,58 INFO     [_internal.py:225]  * Debugger PIN: 552-907-874
+2022-01-20:01:25:36,105 INFO     [_internal.py:225]  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-01-20:01:25:40,886 INFO     [app.py:38] {'name': 'prabal', 'username': '58prabal'}
+2022-01-20:01:25:41,58 INFO     [app.py:52] Successully saved data
+2022-01-20:01:25:41,58 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 01:25:41] "POST / HTTP/1.1" 200 -
+2022-01-20:01:27:35,930 INFO     [_internal.py:225]  * Detected change in 'C:\\Users\\hp\\flask_apps\\data_prac\\send_to_server.py', reloading
+2022-01-20:01:27:35,993 INFO     [_internal.py:225]  * Restarting with stat
+2022-01-20:01:27:36,524 INFO     [app.py:15] Starting app
+2022-01-20:01:27:36,524 INFO     [app.py:19] Connecting to database
+2022-01-20:01:27:36,571 INFO     [app.py:25] Connected to database
+2022-01-20:01:27:36,587 WARNING  [_internal.py:225]  * Debugger is active!
+2022-01-20:01:27:36,602 INFO     [_internal.py:225]  * Debugger PIN: 552-907-874
+2022-01-20:01:27:36,633 INFO     [_internal.py:225]  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
