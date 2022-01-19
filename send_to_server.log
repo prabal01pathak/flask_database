@@ -79,3 +79,7 @@ requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5
 2022-01-19:22:49:39,182 INFO     [send_to_server.py:67] {'message': 'name: 61prabal created succesfully! but not send to other server'}
 2022-01-19:22:49:52,913 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
 2022-01-19:22:49:57,591 INFO     [send_to_server.py:67] {'message': 'name: 34prabal created succesfully! but not send to other server'}
+2022-01-20:01:23:26,43 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:01:23:28,163 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:01:23:28,319 INFO     [send_to_server.py:59] name: 76prabal created succesfully!  send to other server
+2022-01-20:01:23:28,335 INFO     [send_to_server.py:81] Fetch result:  []

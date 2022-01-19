@@ -69,7 +69,7 @@ def send_save_data(data):
             return json.dumps({'message': f"name: {data['username']} created succesfully! but not send to other server"})
 
 
-async def send_remain_data():
+def send_remain_data():
     """ 
     it will send data remaining data to other server 
     """
