@@ -5,8 +5,13 @@ import os
 import random
 import logging
 
-logging.basicConfig(level=logging.DEBUG,filename="send_to_server.log",
-                    format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
+#logging.basicConfig(level=logging.DEBUG,filename="send_to_server.log",
+#                    format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
+
+logging.basicConfig(filename="send_to_server.log",format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
+                        datefmt='%Y-%m-%d:%H:%M:%S',
+                        level=logging.DEBUG)
+
 
 password = os.environ['PASSWORD']
 mysql = connector.connect(user='root', password=password,
@@ -15,12 +20,11 @@ mysql = connector.connect(user='root', password=password,
 # FAKE DATA
 new_data = random.randint(1, 100)
 data = {
-    "name": "Jhonn",
-    "username": str(new_data),
+    "name": "prabal",
+    "username": str(new_data)+"prabal",
 }
 
 
-# it will send data to server and save it locally
 def send_save_data(data):
     """
     send_save_data(data) takes data and save it locally 
@@ -33,14 +37,17 @@ def send_save_data(data):
 
     insert_query = "INSERT INTO backup_user (name, username,other_status) VALUES (%s, %s, %s)"
 
-    # send data to other server using post method
+    # send data to other server 
     status_code = 404
+
     try:
         send_data = requests.post("http://localhost:5000/", json=data)
         status_code = send_data.status_code
+
     except Exception as e:
         logging.error(
             "error in sending data to other server", exec_info=True)
+
     finally:
         if status_code == 200:
             status = True
@@ -52,6 +59,7 @@ def send_save_data(data):
             logging.info(
                 f"name: {data['username']} created succesfully!  send to other server")
             return json.dumps({'message': f"name: {data['username']} created succesfully! send to other server"})
+
         else:
             cur.execute(insert_query, (data['name'], data['username'], status))
             mysql.commit()
@@ -70,11 +78,11 @@ def send_remain_data():
     # get all data where status_code = false
     cur.execute("SELECT * FROM backup_user WHERE other_status = False")
     result = cur.fetchall()
-    logging.info(f"fetch result:  {result}")
+    logging.info(f"Fetch result:  {result}")
 
     # if rseult length > 0 then try to send them again.
     if len(result) > 0:
-        logging.info("sending remaining data")
+        logging.info("Sending remaining data")
         for row in result:
             # form dataset
             data = {
@@ -92,22 +100,29 @@ def send_remain_data():
                 status_code = send_data.status_code
 
                 # if data sent successfully then update it in local database
-                logging.info("updating data")
+                logging.info("Updating data")
                 cur.execute(
                     "UPDATE backup_user SET other_status = True WHERE name= %s and username=%s AND other_status=False", (row[0], row[1]))
 
                 mysql.commit()
-                logging.info(f"{row[1]} successfully send to other server")
+                logging.info(f"{row[1]} Successfully send to other server")
+
             except Exception as e:
                 logging.error(
                     "Error in sending data to other server", exc_info=True)
+
             finally:
                 if status_code != 200:
                     logging.info("Host is down")
                     return json.dumps({"message": "Host is down"})
+
         cur.close()
         return json.dumps({"message": "All data Sent to server"})
+
     cur.close()
-    return json.dumps({"message": "no data available to send to server"})
+    return json.dumps({"message": "No data available for send to the server"})
+
+
+
 print(send_save_data(data))
 print(send_remain_data())
