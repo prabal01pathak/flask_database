@@ -1,0 +1,247 @@
+18-Jan-22 23:54:42 - Starting new HTTP connection (1): localhost:5000
+18-Jan-22 23:54:44 - http://localhost:5000 "POST / HTTP/1.1" 200 52
+18-Jan-22 23:54:45 - name: 42 created succesfully!  send to other server
+18-Jan-22 23:54:45 - fetch result:  []
+18-Jan-22 23:55:04 - Starting new HTTP connection (1): localhost:5000
+18-Jan-22 23:55:06 - http://localhost:5000 "POST / HTTP/1.1" 200 52
+18-Jan-22 23:55:07 - name: 81 created succesfully!  send to other server
+18-Jan-22 23:55:07 - fetch result:  []
+18-Jan-22 23:56:07 - Starting new HTTP connection (1): localhost:5000
+18-Jan-22 23:56:09 - http://localhost:5000 "POST / HTTP/1.1" 200 52
+18-Jan-22 23:56:09 - name: 8 created succesfully!  send to other server
+18-Jan-22 23:56:09 - fetch result:  []
+18-Jan-22 23:56:26 - Starting new HTTP connection (1): localhost:5000
+18-Jan-22 23:56:29 - http://localhost:5000 "POST / HTTP/1.1" 200 52
+18-Jan-22 23:56:29 - name: 31 created succesfully!  send to other server
+18-Jan-22 23:56:29 - fetch result:  []
+18-Jan-22 23:59:40 - Starting new HTTP connection (1): localhost:5000
+18-Jan-22 23:59:44 - {'message': 'name: 20 created succesfully! but not send to other server'}
+18-Jan-22 23:59:44 - fetch result:  [('Jhonn', '20', 0)]
+18-Jan-22 23:59:44 - sending remaining data
+18-Jan-22 23:59:44 - Starting new HTTP connection (1): localhost:5000
+18-Jan-22 23:59:48 - Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000021CFB45D040>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000021CFB45D040>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 91, in send_remain_data
+    send_data = requests.post("http://localhost:5000/", json=data)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000021CFB45D040>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+18-Jan-22 23:59:48 - Host is down
+19-Jan-22 00:00:52 - Starting new HTTP connection (1): localhost:5000
+19-Jan-22 00:00:55 - http://localhost:5000 "POST / HTTP/1.1" 200 52
+19-Jan-22 00:00:55 - name: 16 created succesfully!  send to other server
+19-Jan-22 00:00:55 - fetch result:  [('Jhonn', '20', 0)]
+19-Jan-22 00:00:55 - sending remaining data
+19-Jan-22 00:00:55 - Starting new HTTP connection (1): localhost:5000
+19-Jan-22 00:00:57 - http://localhost:5000 "POST / HTTP/1.1" 200 52
+19-Jan-22 00:00:57 - updating data
+19-Jan-22 00:00:57 - 20 successfully send to other server
+19-Jan-22 00:21:43 - Starting new HTTP connection (1): localhost:5000
+19-Jan-22 00:21:49 - {'message': 'name: 90 created succesfully! but not send to other server'}
+19-Jan-22 00:21:49 - fetch result:  [('Jhonn', '90', 0)]
+19-Jan-22 00:21:49 - sending remaining data
+19-Jan-22 00:21:49 - Starting new HTTP connection (1): localhost:5000
+19-Jan-22 00:21:53 - Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001C44B6ED040>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001C44B6ED040>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 91, in send_remain_data
+    send_data = requests.post("http://localhost:5000/", json=data)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001C44B6ED040>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+19-Jan-22 00:21:53 - Host is down
+19-Jan-22 00:22:24 - Starting new HTTP connection (1): localhost:5000
+19-Jan-22 00:22:27 - http://localhost:5000 "POST / HTTP/1.1" 200 52
+19-Jan-22 00:22:27 - name: 32 created succesfully!  send to other server
+19-Jan-22 00:22:27 - fetch result:  [('Jhonn', '90', 0)]
+19-Jan-22 00:22:27 - sending remaining data
+19-Jan-22 00:22:27 - Starting new HTTP connection (1): localhost:5000
+19-Jan-22 00:22:30 - http://localhost:5000 "POST / HTTP/1.1" 200 52
+19-Jan-22 00:22:30 - updating data
+19-Jan-22 00:22:30 - 90 successfully send to other server
+19-Jan-22 00:23:13 - Starting new HTTP connection (1): localhost:5000
+19-Jan-22 00:23:17 - {'message': 'name: 62 created succesfully! but not send to other server'}
+19-Jan-22 00:23:17 - fetch result:  [('Jhonn', '62', 0)]
+19-Jan-22 00:23:17 - sending remaining data
+19-Jan-22 00:23:17 - Starting new HTTP connection (1): localhost:5000
+19-Jan-22 00:23:21 - Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001E7B2F0D040>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001E7B2F0D040>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 91, in send_remain_data
+    send_data = requests.post("http://localhost:5000/", json=data)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001E7B2F0D040>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+19-Jan-22 00:23:21 - Host is down
+19-Jan-22 00:23:49 - Starting new HTTP connection (1): localhost:5000
+19-Jan-22 00:23:52 - http://localhost:5000 "POST / HTTP/1.1" 200 52
+19-Jan-22 00:23:52 - name: 68 created succesfully!  send to other server
+19-Jan-22 00:23:52 - fetch result:  [('Jhonn', '62', 0)]
+19-Jan-22 00:23:52 - sending remaining data
+19-Jan-22 00:23:52 - Starting new HTTP connection (1): localhost:5000
+19-Jan-22 00:23:54 - http://localhost:5000 "POST / HTTP/1.1" 200 52
+19-Jan-22 00:23:54 - updating data
+19-Jan-22 00:23:55 - 62 successfully send to other server
