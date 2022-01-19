@@ -35,7 +35,7 @@ def send_save_data(data):
     # status if failed or success to send other server
     status = False
 
-    insert_query = "INSERT INTO backup_user (name, username,other_status) VALUES (%s, %s, %s)"
+    insert_query = "INSERT INTO backup_user (name, username,other_status) VALUES (%(name)s, %(username)s, %(status)s)"
 
     # send data to other server 
     status_code = 404
@@ -51,7 +51,7 @@ def send_save_data(data):
     finally:
         if status_code == 200:
             status = True
-            cur.execute(insert_query, (data['name'], data['username'], status))
+            cur.execute(insert_query, {"name":data['name'], "username":data['username'],"status":status})
             mysql.commit()
             cur.close()
 
@@ -61,7 +61,7 @@ def send_save_data(data):
             return json.dumps({'message': f"name: {data['username']} created succesfully! send to other server"})
 
         else:
-            cur.execute(insert_query, (data['name'], data['username'], status))
+            cur.execute(insert_query, {"name":data['name'], "username":data['username'],"status":status})
             mysql.commit()
             cur.close()
             logging.info(
@@ -69,7 +69,7 @@ def send_save_data(data):
             return json.dumps({'message': f"name: {data['username']} created succesfully! but not send to other server"})
 
 
-def send_remain_data():
+async def send_remain_data():
     """ 
     it will send data remaining data to other server 
     """
@@ -102,7 +102,7 @@ def send_remain_data():
                 # if data sent successfully then update it in local database
                 logging.info("Updating data")
                 cur.execute(
-                    "UPDATE backup_user SET other_status = True WHERE name= %s and username=%s AND other_status=False", (row[0], row[1]))
+                    "UPDATE backup_user SET other_status = True WHERE name= %(name)s and username=%(username)s AND other_status=False", {"name":row[0], "username":row[1]})
 
                 mysql.commit()
                 logging.info(f"{row[1]} Successfully send to other server")
@@ -125,4 +125,4 @@ def send_remain_data():
 
 
 print(send_save_data(data))
-print(send_remain_data())
+send_remain_data()

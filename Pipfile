@@ -8,6 +8,7 @@ flask = "*"
 mysql = "*"
 mysql-connector-python = "*"
 requests = "*"
+pyresparser = "*"
 
 [dev-packages]
 

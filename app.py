@@ -43,7 +43,7 @@ def home():
 
         # send data to mysql_server
         cur.execute(
-            "INSERT INTO user (name, username) VALUES (%s, %s)", (name, username))
+            "INSERT INTO user (name, username) VALUES (%(name)s, %(username)s)", {"name":name, "username":username})
 
         # commit data and close the connection
         mysql.commit()
