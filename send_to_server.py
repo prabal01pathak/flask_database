@@ -57,6 +57,7 @@ async def send_save_data(data):
     mysql = await asyncio.create_task(connect_to_database())
     cur =  await mysql.cursor()
     await cur.execute(insert_query, {"name":data['name'], "username":data['username'],"status":status})
+    print(cur.lastrowid)
     await mysql.commit()
     await cur.close()
     mysql.close()
@@ -75,6 +76,7 @@ async def send_remain_data():
     # get all data where status_code = false
     await cur.execute("SELECT * FROM backup_user WHERE other_status = False")
     result = await cur.fetchall()
+    print(len(result))
     logging.info(f"Fetch result:  {result}")
 
     # if rseult length > 0 then try to send them again.
@@ -93,7 +95,7 @@ async def send_remain_data():
             # try to send the data
             try:
                 # send data to server
-                send_data = requests.post("http://localhost:5000/", json=data, timeout=0.5)
+                send_data = requests.post("http://localhost:5000/", json=data, timeout=1)
                 print(send_data.status_code)
                 status_code = send_data.status_code
 
@@ -127,10 +129,15 @@ async def send_remain_data():
 async def main(data):
     """
     main function
+    for i in range(100):
+        data = {
+            "name": "prabal",
+            "username": str(i)+"prabal",
+        }
     """
     l = await asyncio.gather(send_save_data(data))
-    m = await asyncio.gather(send_remain_data())
     print(l)
+    m = await asyncio.gather(send_remain_data())
     print(m)
 
 if __name__ == "__main__":
