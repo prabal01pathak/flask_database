@@ -1,0 +1,10 @@
+2022-01-20:13:55:02,138 INFO     [send_to_server.py:45] Sending data to other server
+2022-01-20:13:55:02,154 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:13:55:03,29 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:13:55:03,295 INFO     [send_to_server.py:61] name: 69prabal created succesfully!  send to other server
+2022-01-20:13:55:03,310 INFO     [send_to_server.py:83] Fetch result:  [('prabal', '75prabal', 0)]
+2022-01-20:13:55:03,310 INFO     [send_to_server.py:87] Sending remaining data
+2022-01-20:13:55:03,326 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:13:55:03,936 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:13:55:03,936 INFO     [send_to_server.py:106] Updating data
+2022-01-20:13:55:04,91 INFO     [send_to_server.py:111] 75prabal Successfully send to other server
