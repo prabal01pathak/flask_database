@@ -113,12 +113,7 @@ async def send_remain_data():
                 else:
                     logging.info("Host is down")
                     logging.info(f"Status Code: {status_code}")
-                    print('sleeping')
-                    try:
-                        await cur.close()
-                    except Exception as e:
-                        logging.error(
-                            "Error in closing cursor", exc_info=True)
+                    await cur.close()
                     mysql.close()
                     return json.dumps({"message": "Host is down"})
         await cur.close()

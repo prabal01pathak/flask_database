@@ -939,3 +939,28 @@
 2022-01-20:01:27:36,587 WARNING  [_internal.py:225]  * Debugger is active!
 2022-01-20:01:27:36,602 INFO     [_internal.py:225]  * Debugger PIN: 552-907-874
 2022-01-20:01:27:36,633 INFO     [_internal.py:225]  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-01-20:10:41:37,506 INFO     [app.py:15] Starting app
+2022-01-20:10:41:37,537 INFO     [app.py:19] Connecting to database
+2022-01-20:10:41:38,522 INFO     [app.py:25] Connected to database
+2022-01-20:10:41:38,787 INFO     [_internal.py:225]  * Restarting with stat
+2022-01-20:10:41:39,334 INFO     [app.py:15] Starting app
+2022-01-20:10:41:39,334 INFO     [app.py:19] Connecting to database
+2022-01-20:10:41:39,615 INFO     [app.py:25] Connected to database
+2022-01-20:10:41:39,615 WARNING  [_internal.py:225]  * Debugger is active!
+2022-01-20:10:41:39,756 INFO     [_internal.py:225]  * Debugger PIN: 552-907-874
+2022-01-20:10:41:39,912 INFO     [_internal.py:225]  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-01-20:10:41:43,365 INFO     [app.py:38] {'name': 'prabal', 'username': '78prabal'}
+2022-01-20:10:41:43,990 INFO     [app.py:52] Successully saved data
+2022-01-20:10:41:43,990 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 10:41:43] "POST / HTTP/1.1" 200 -
+2022-01-20:10:41:55,148 INFO     [app.py:38] {'name': 'prabal', 'username': '78prabal'}
+2022-01-20:10:41:55,336 INFO     [app.py:52] Successully saved data
+2022-01-20:10:41:55,336 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 10:41:55] "POST / HTTP/1.1" 200 -
+2022-01-20:10:41:56,476 INFO     [app.py:38] {'name': 'prabal', 'username': '80prabal'}
+2022-01-20:10:41:56,601 INFO     [app.py:52] Successully saved data
+2022-01-20:10:41:56,601 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 10:41:56] "POST / HTTP/1.1" 200 -
+2022-01-20:10:41:57,351 INFO     [app.py:38] {'name': 'prabal', 'username': '57prabal'}
+2022-01-20:10:41:57,648 INFO     [app.py:52] Successully saved data
+2022-01-20:10:41:57,648 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 10:41:57] "POST / HTTP/1.1" 200 -
+2022-01-20:10:41:58,414 INFO     [app.py:38] {'name': 'prabal', 'username': '48prabal'}
+2022-01-20:10:41:58,633 INFO     [app.py:52] Successully saved data
+2022-01-20:10:41:58,633 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 10:41:58] "POST / HTTP/1.1" 200 -

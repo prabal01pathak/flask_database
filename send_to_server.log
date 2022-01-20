@@ -2161,3 +2161,228 @@ requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5
 2022-01-20:01:16:25,444 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
 2022-01-20:01:16:25,460 INFO     [send_to_server.py:107] Updating data
 2022-01-20:01:16:25,663 INFO     [send_to_server.py:112] 98prabal Successfully send to other server
+2022-01-20:10:40:35,638 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:10:40:37,420 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:10:40:39,670 INFO     [send_to_server.py:63] {'message': 'name: 78prabal created succesfully! but not send to other server'}
+2022-01-20:10:40:39,701 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:10:40:40,404 INFO     [send_to_server.py:78] Fetch result:  (('prabal', '78prabal', 0),)
+2022-01-20:10:40:40,404 INFO     [send_to_server.py:82] Sending remaining data
+2022-01-20:10:40:40,545 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:10:40:41,576 ERROR    [send_to_server.py:101] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 179, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x0000027EA0525460>, 'Connection to localhost timed out. (connect timeout=0.5)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x0000027EA0525460>, 'Connection to localhost timed out. (connect timeout=0.5)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 96, in send_remain_data
+    send_data = requests.post("http://localhost:5000/", json=data, timeout=0.5)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x0000027EA0525460>, 'Connection to localhost timed out. (connect timeout=0.5)'))
+2022-01-20:10:40:41,841 INFO     [send_to_server.py:114] Host is down
+2022-01-20:10:40:41,841 INFO     [send_to_server.py:115] Status Code: 404
+2022-01-20:10:41:20,706 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:10:41:20,878 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:10:41:22,49 INFO     [send_to_server.py:63] {'message': 'name: 80prabal created succesfully! but not send to other server'}
+2022-01-20:10:41:22,159 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:10:41:22,284 INFO     [send_to_server.py:78] Fetch result:  (('prabal', '78prabal', 0), ('prabal', '80prabal', 0))
+2022-01-20:10:41:22,284 INFO     [send_to_server.py:82] Sending remaining data
+2022-01-20:10:41:22,299 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:10:41:23,300 ERROR    [send_to_server.py:101] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1253, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1299, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1248, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1008, in _send_output
+    self.send(msg)
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 948, in send
+    self.connect()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connection.py", line 179, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x000001C8B25B8220>, 'Connection to localhost timed out. (connect timeout=0.5)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001C8B25B8220>, 'Connection to localhost timed out. (connect timeout=0.5)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 96, in send_remain_data
+    send_data = requests.post("http://localhost:5000/", json=data, timeout=0.5)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001C8B25B8220>, 'Connection to localhost timed out. (connect timeout=0.5)'))
+2022-01-20:10:41:23,300 INFO     [send_to_server.py:114] Host is down
+2022-01-20:10:41:23,300 INFO     [send_to_server.py:115] Status Code: 404
+2022-01-20:10:41:41,819 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:10:41:41,928 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:10:41:42,569 INFO     [send_to_server.py:63] {'message': 'name: 57prabal created succesfully! but not send to other server'}
+2022-01-20:10:41:42,678 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:10:41:42,678 INFO     [send_to_server.py:78] Fetch result:  (('prabal', '78prabal', 0), ('prabal', '80prabal', 0), ('prabal', '57prabal', 0))
+2022-01-20:10:41:42,678 INFO     [send_to_server.py:82] Sending remaining data
+2022-01-20:10:41:42,756 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:10:41:43,803 ERROR    [send_to_server.py:101] Error in sending data to other server
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 1345, in getresponse
+    response.begin()
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 307, in begin
+    version, status, reason = self._read_status()
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\http\client.py", line 268, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "c:\users\hp\appdata\local\programs\python\python39\lib\socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\util\retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\packages\six.py", line 770, in reraise
+    raise value
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 451, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\urllib3\connectionpool.py", line 340, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='localhost', port=5000): Read timed out. (read timeout=0.5)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\flask_apps\data_prac\send_to_server.py", line 96, in send_remain_data
+    send_data = requests.post("http://localhost:5000/", json=data, timeout=0.5)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\hp\.virtualenvs\data_prac-rC3M8CAo\lib\site-packages\requests\adapters.py", line 532, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='localhost', port=5000): Read timed out. (read timeout=0.5)
+2022-01-20:10:41:45,7 INFO     [send_to_server.py:114] Host is down
+2022-01-20:10:41:45,7 INFO     [send_to_server.py:115] Status Code: 404
+2022-01-20:10:41:53,258 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:10:41:53,273 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:10:41:54,23 INFO     [send_to_server.py:63] {'message': 'name: 48prabal created succesfully! but not send to other server'}
+2022-01-20:10:41:54,39 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:10:41:54,601 INFO     [send_to_server.py:78] Fetch result:  (('prabal', '78prabal', 0), ('prabal', '80prabal', 0), ('prabal', '57prabal', 0), ('prabal', '48prabal', 0))
+2022-01-20:10:41:54,601 INFO     [send_to_server.py:82] Sending remaining data
+2022-01-20:10:41:54,633 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:10:41:55,336 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:10:41:55,367 INFO     [send_to_server.py:107] Updating data
+2022-01-20:10:41:55,961 INFO     [send_to_server.py:112] 78prabal Successfully send to other server
+2022-01-20:10:41:55,961 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:10:41:56,601 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:10:41:56,601 INFO     [send_to_server.py:107] Updating data
+2022-01-20:10:41:56,836 INFO     [send_to_server.py:112] 80prabal Successfully send to other server
+2022-01-20:10:41:56,836 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:10:41:57,648 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:10:41:57,648 INFO     [send_to_server.py:107] Updating data
+2022-01-20:10:41:57,883 INFO     [send_to_server.py:112] 57prabal Successfully send to other server
+2022-01-20:10:41:57,883 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:10:41:58,633 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:10:41:58,633 INFO     [send_to_server.py:107] Updating data
+2022-01-20:10:41:58,820 INFO     [send_to_server.py:112] 48prabal Successfully send to other server
