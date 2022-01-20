@@ -41,7 +41,9 @@ def send_save_data(data):
     status_code = 404
 
     try:
-        send_data = requests.post("http://localhost:5000/", json=data)
+        # send data to server
+        logging.info("Sending data to other server")
+        send_data = requests.post("http://localhost:5000/", json=data, timeout=0.5)
         status_code = send_data.status_code
 
     except Exception as e:
@@ -96,8 +98,9 @@ def send_remain_data():
             # try to send the data
             try:
                 # send data to server
-                send_data = requests.post("http://localhost:5000/", json=data)
+                send_data = requests.post("http://localhost:5000/", json=data, timeout=0.5)
                 status_code = send_data.status_code
+                print("Status Code: ",status_code)
 
                 # if data sent successfully then update it in local database
                 logging.info("Updating data")
