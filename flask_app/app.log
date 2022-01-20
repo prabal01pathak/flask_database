@@ -1,29 +1,150 @@
-2022-01-20:13:20:04,97 INFO     [app.py:15] Starting app
-2022-01-20:13:20:04,97 INFO     [app.py:19] Connecting to database
-2022-01-20:13:20:04,347 INFO     [app.py:25] Connected to database
-2022-01-20:13:20:04,378 INFO     [_internal.py:225]  * Restarting with stat
-2022-01-20:13:20:04,831 INFO     [app.py:15] Starting app
-2022-01-20:13:20:04,831 INFO     [app.py:19] Connecting to database
-2022-01-20:13:20:04,909 INFO     [app.py:25] Connected to database
-2022-01-20:13:20:04,925 WARNING  [_internal.py:225]  * Debugger is active!
-2022-01-20:13:20:04,925 INFO     [_internal.py:225]  * Debugger PIN: 552-907-874
-2022-01-20:13:20:04,956 INFO     [_internal.py:225]  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
-2022-01-20:13:20:48,407 INFO     [app.py:38] {'name': 'prabal', 'username': '58prabal'}
-2022-01-20:13:20:48,595 INFO     [app.py:52] Successully saved data
-2022-01-20:13:20:48,595 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 13:20:48] "POST / HTTP/1.1" 200 -
-2022-01-20:13:54:23,537 INFO     [app.py:15] Starting app
-2022-01-20:13:54:23,537 INFO     [app.py:19] Connecting to database
-2022-01-20:13:54:23,975 INFO     [app.py:25] Connected to database
-2022-01-20:13:54:24,172 INFO     [_internal.py:225]  * Restarting with stat
-2022-01-20:13:54:24,844 INFO     [app.py:15] Starting app
-2022-01-20:13:54:24,844 INFO     [app.py:19] Connecting to database
-2022-01-20:13:54:24,860 INFO     [app.py:25] Connected to database
-2022-01-20:13:54:24,875 WARNING  [_internal.py:225]  * Debugger is active!
-2022-01-20:13:54:24,922 INFO     [_internal.py:225]  * Debugger PIN: 552-907-874
-2022-01-20:13:54:24,953 INFO     [_internal.py:225]  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
-2022-01-20:13:55:02,686 INFO     [app.py:38] {'name': 'prabal', 'username': '69prabal'}
-2022-01-20:13:55:03,14 INFO     [app.py:52] Successully saved data
-2022-01-20:13:55:03,14 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 13:55:03] "POST / HTTP/1.1" 200 -
-2022-01-20:13:55:03,873 INFO     [app.py:38] {'name': 'prabal', 'username': '75prabal'}
-2022-01-20:13:55:03,936 INFO     [app.py:52] Successully saved data
-2022-01-20:13:55:03,936 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 13:55:03] "POST / HTTP/1.1" 200 -
+2022-01-20:13:15:08,108 INFO     [app.py:38] {'name': 'prabal', 'username': '6prabal'}
+2022-01-20:13:15:08,202 INFO     [app.py:52] Successully saved data
+2022-01-20:13:15:08,202 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 13:15:08] "POST / HTTP/1.1" 200 -
+2022-01-20:13:58:53,553 INFO     [app.py:15] Starting app
+2022-01-20:13:58:53,553 INFO     [app.py:19] Connecting to database
+2022-01-20:13:58:53,694 INFO     [app.py:25] Connected to database
+2022-01-20:13:58:53,725 INFO     [_internal.py:225]  * Restarting with stat
+2022-01-20:13:58:54,193 INFO     [app.py:15] Starting app
+2022-01-20:13:58:54,193 INFO     [app.py:19] Connecting to database
+2022-01-20:13:58:54,255 INFO     [app.py:25] Connected to database
+2022-01-20:13:58:54,255 WARNING  [_internal.py:225]  * Debugger is active!
+2022-01-20:13:58:54,271 INFO     [_internal.py:225]  * Debugger PIN: 552-907-874
+2022-01-20:13:58:54,286 INFO     [_internal.py:225]  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-01-20:13:59:03,851 INFO     [app.py:38] {'name': 'prabal', 'username': '86prabal'}
+2022-01-20:13:59:04,85 INFO     [app.py:52] Successully saved data
+2022-01-20:13:59:04,85 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 13:59:04] "POST / HTTP/1.1" 200 -
+2022-01-20:13:59:05,325 INFO     [app.py:38] {'name': 'prabal', 'username': '64prabal'}
+2022-01-20:13:59:05,388 INFO     [app.py:52] Successully saved data
+2022-01-20:13:59:05,388 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 13:59:05] "POST / HTTP/1.1" 200 -
+2022-01-20:14:03:19,736 INFO     [app.py:38] {'name': 'prabal', 'username': '30prabal'}
+2022-01-20:14:03:19,908 INFO     [app.py:52] Successully saved data
+2022-01-20:14:03:19,908 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 14:03:19] "POST / HTTP/1.1" 200 -
+2022-01-20:14:03:30,268 INFO     [app.py:38] {'name': 'prabal', 'username': '22prabal'}
+2022-01-20:14:03:30,362 INFO     [app.py:52] Successully saved data
+2022-01-20:14:03:30,362 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 14:03:30] "POST / HTTP/1.1" 200 -
+2022-01-20:14:03:59,415 INFO     [app.py:38] {'name': 'prabal', 'username': '89prabal'}
+2022-01-20:14:03:59,611 INFO     [app.py:52] Successully saved data
+2022-01-20:14:03:59,611 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 14:03:59] "POST / HTTP/1.1" 200 -
+2022-01-20:14:04:00,837 INFO     [app.py:38] {'name': 'prabal', 'username': '89prabal'}
+2022-01-20:14:04:00,930 INFO     [app.py:52] Successully saved data
+2022-01-20:14:04:00,930 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 14:04:00] "POST / HTTP/1.1" 200 -
+2022-01-20:14:04:01,930 INFO     [app.py:38] {'name': 'prabal', 'username': '37prabal'}
+2022-01-20:14:04:02,24 INFO     [app.py:52] Successully saved data
+2022-01-20:14:04:02,24 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 14:04:02] "POST / HTTP/1.1" 200 -
+2022-01-20:14:04:19,722 INFO     [app.py:38] {'name': 'prabal', 'username': '20prabal'}
+2022-01-20:14:04:19,815 INFO     [app.py:52] Successully saved data
+2022-01-20:14:04:19,815 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 14:04:19] "POST / HTTP/1.1" 200 -
+2022-01-20:14:04:20,854 INFO     [app.py:38] {'name': 'prabal', 'username': '20prabal'}
+2022-01-20:14:04:20,963 INFO     [app.py:52] Successully saved data
+2022-01-20:14:04:20,963 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 14:04:20] "POST / HTTP/1.1" 200 -
+2022-01-20:14:04:37,881 INFO     [app.py:38] {'name': 'prabal', 'username': '28prabal'}
+2022-01-20:14:04:37,959 INFO     [app.py:52] Successully saved data
+2022-01-20:14:04:37,959 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 14:04:37] "POST / HTTP/1.1" 200 -
+2022-01-20:14:06:18,957 INFO     [app.py:38] {'name': 'prabal', 'username': '65prabal'}
+2022-01-20:14:06:19,190 INFO     [app.py:52] Successully saved data
+2022-01-20:14:06:19,191 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 14:06:19] "POST / HTTP/1.1" 200 -
+2022-01-20:14:07:35,448 INFO     [app.py:38] {'name': 'prabal', 'username': '46prabal'}
+2022-01-20:14:07:35,620 INFO     [app.py:52] Successully saved data
+2022-01-20:14:07:35,620 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 14:07:35] "POST / HTTP/1.1" 200 -
+2022-01-20:14:09:11,377 INFO     [app.py:38] {'name': 'prabal', 'username': '60prabal'}
+2022-01-20:14:09:11,502 INFO     [app.py:52] Successully saved data
+2022-01-20:14:09:11,502 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 14:09:11] "POST / HTTP/1.1" 200 -
+2022-01-20:14:09:19,395 INFO     [app.py:38] {'name': 'prabal', 'username': '81prabal'}
+2022-01-20:14:09:19,552 INFO     [app.py:52] Successully saved data
+2022-01-20:14:09:19,552 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 14:09:19] "POST / HTTP/1.1" 200 -
+2022-01-20:14:09:28,5 INFO     [app.py:38] {'name': 'prabal', 'username': '51prabal'}
+2022-01-20:14:09:28,68 INFO     [app.py:52] Successully saved data
+2022-01-20:14:09:28,68 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 14:09:28] "POST / HTTP/1.1" 200 -
+2022-01-20:14:10:32,770 INFO     [app.py:38] {'name': 'prabal', 'username': '29prabal'}
+2022-01-20:14:10:33,20 INFO     [app.py:52] Successully saved data
+2022-01-20:14:10:33,20 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 14:10:33] "POST / HTTP/1.1" 200 -
+2022-01-20:19:01:34,764 INFO     [app.py:15] Starting app
+2022-01-20:19:01:34,775 INFO     [app.py:19] Connecting to database
+2022-01-20:19:01:35,74 INFO     [app.py:25] Connected to database
+2022-01-20:19:01:35,497 INFO     [_internal.py:225]  * Restarting with stat
+2022-01-20:19:01:37,149 INFO     [app.py:15] Starting app
+2022-01-20:19:01:37,149 INFO     [app.py:19] Connecting to database
+2022-01-20:19:01:37,735 INFO     [app.py:25] Connected to database
+2022-01-20:19:01:37,751 WARNING  [_internal.py:225]  * Debugger is active!
+2022-01-20:19:01:37,798 INFO     [_internal.py:225]  * Debugger PIN: 552-907-874
+2022-01-20:19:01:37,908 INFO     [_internal.py:225]  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-01-20:19:01:45,219 INFO     [app.py:38] {'name': 'prabal', 'username': '64prabal'}
+2022-01-20:19:01:45,784 INFO     [app.py:52] Successully saved data
+2022-01-20:19:01:45,784 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:01:45] "POST / HTTP/1.1" 200 -
+2022-01-20:19:01:46,325 INFO     [app.py:38] {'name': 'prabal', 'username': '37prabal'}
+2022-01-20:19:01:46,419 INFO     [app.py:52] Successully saved data
+2022-01-20:19:01:46,419 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:01:46] "POST / HTTP/1.1" 200 -
+2022-01-20:19:01:47,361 INFO     [app.py:38] {'name': 'prabal', 'username': '56prabal'}
+2022-01-20:19:01:47,429 INFO     [app.py:52] Successully saved data
+2022-01-20:19:01:47,444 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:01:47] "POST / HTTP/1.1" 200 -
+2022-01-20:19:01:48,79 INFO     [app.py:38] {'name': 'prabal', 'username': '80prabal'}
+2022-01-20:19:01:48,350 INFO     [app.py:52] Successully saved data
+2022-01-20:19:01:48,350 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:01:48] "POST / HTTP/1.1" 200 -
+2022-01-20:19:01:49,29 INFO     [app.py:38] {'name': 'prabal', 'username': '18prabal'}
+2022-01-20:19:01:49,92 INFO     [app.py:52] Successully saved data
+2022-01-20:19:01:49,92 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:01:49] "POST / HTTP/1.1" 200 -
+2022-01-20:19:01:49,710 INFO     [app.py:38] {'name': 'prabal', 'username': '64prabal'}
+2022-01-20:19:01:49,757 INFO     [app.py:52] Successully saved data
+2022-01-20:19:01:49,773 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:01:49] "POST / HTTP/1.1" 200 -
+2022-01-20:19:07:58,897 INFO     [app.py:38] {'name': 'prabal', 'username': '57prabal'}
+2022-01-20:19:07:59,87 INFO     [app.py:52] Successully saved data
+2022-01-20:19:07:59,87 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:07:59] "POST / HTTP/1.1" 200 -
+2022-01-20:19:09:50,36 INFO     [app.py:38] {'name': 'prabal', 'username': '97prabal'}
+2022-01-20:19:09:50,208 INFO     [app.py:52] Successully saved data
+2022-01-20:19:09:50,208 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:09:50] "POST / HTTP/1.1" 200 -
+2022-01-20:19:19:15,372 INFO     [app.py:15] Starting app
+2022-01-20:19:19:15,372 INFO     [app.py:19] Connecting to database
+2022-01-20:19:19:15,516 INFO     [app.py:25] Connected to database
+2022-01-20:19:19:15,672 INFO     [_internal.py:225]  * Restarting with stat
+2022-01-20:19:19:17,528 INFO     [app.py:15] Starting app
+2022-01-20:19:19:17,528 INFO     [app.py:19] Connecting to database
+2022-01-20:19:19:17,701 INFO     [app.py:25] Connected to database
+2022-01-20:19:19:17,716 WARNING  [_internal.py:225]  * Debugger is active!
+2022-01-20:19:19:18,331 INFO     [_internal.py:225]  * Debugger PIN: 552-907-874
+2022-01-20:19:19:18,528 INFO     [_internal.py:225]  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-01-20:19:19:30,400 INFO     [app.py:38] {'name': 'prabal', 'username': '40prabal'}
+2022-01-20:19:19:30,654 INFO     [app.py:52] Successully saved data
+2022-01-20:19:19:30,654 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:19:30] "POST / HTTP/1.1" 200 -
+2022-01-20:19:19:31,851 INFO     [app.py:38] {'name': 'prabal', 'username': '79prabal'}
+2022-01-20:19:19:32,100 INFO     [app.py:52] Successully saved data
+2022-01-20:19:19:32,115 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:19:32] "POST / HTTP/1.1" 200 -
+2022-01-20:19:26:23,640 INFO     [app.py:38] {'name': 'prabal', 'username': '88prabal'}
+2022-01-20:19:26:23,751 INFO     [app.py:52] Successully saved data
+2022-01-20:19:26:23,751 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:26:23] "POST / HTTP/1.1" 200 -
+2022-01-20:19:26:24,650 INFO     [app.py:38] {'name': 'prabal', 'username': '79prabal'}
+2022-01-20:19:26:24,697 INFO     [app.py:52] Successully saved data
+2022-01-20:19:26:24,697 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:26:24] "POST / HTTP/1.1" 200 -
+2022-01-20:19:28:22,943 INFO     [app.py:38] {'name': 'prabal', 'username': '93prabal'}
+2022-01-20:19:28:23,38 INFO     [app.py:52] Successully saved data
+2022-01-20:19:28:23,38 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:28:23] "POST / HTTP/1.1" 200 -
+2022-01-20:19:28:23,831 INFO     [app.py:38] {'name': 'prabal', 'username': '79prabal'}
+2022-01-20:19:28:24,5 INFO     [app.py:52] Successully saved data
+2022-01-20:19:28:24,5 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:28:24] "POST / HTTP/1.1" 200 -
+2022-01-20:19:28:24,533 INFO     [app.py:38] {'name': 'prabal', 'username': '41prabal'}
+2022-01-20:19:28:24,634 INFO     [app.py:52] Successully saved data
+2022-01-20:19:28:24,634 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:28:24] "POST / HTTP/1.1" 200 -
+2022-01-20:19:29:10,706 INFO     [app.py:38] {'name': 'prabal', 'username': '38prabal'}
+2022-01-20:19:29:10,801 INFO     [app.py:52] Successully saved data
+2022-01-20:19:29:10,801 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:29:10] "POST / HTTP/1.1" 200 -
+2022-01-20:19:29:11,671 INFO     [app.py:38] {'name': 'prabal', 'username': '79prabal'}
+2022-01-20:19:29:11,766 INFO     [app.py:52] Successully saved data
+2022-01-20:19:29:11,766 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:29:11] "POST / HTTP/1.1" 200 -
+2022-01-20:19:30:48,423 INFO     [app.py:38] {'name': 'prabal', 'username': '94prabal'}
+2022-01-20:19:30:48,517 INFO     [app.py:52] Successully saved data
+2022-01-20:19:30:48,517 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:30:48] "POST / HTTP/1.1" 200 -
+2022-01-20:19:30:49,161 INFO     [app.py:38] {'name': 'prabal', 'username': '79prabal'}
+2022-01-20:19:30:49,286 INFO     [app.py:52] Successully saved data
+2022-01-20:19:30:49,286 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:30:49] "POST / HTTP/1.1" 200 -
+2022-01-20:19:33:02,373 INFO     [app.py:38] {'name': 'prabal', 'username': '99prabal'}
+2022-01-20:19:33:02,500 INFO     [app.py:52] Successully saved data
+2022-01-20:19:33:02,500 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:33:02] "POST / HTTP/1.1" 200 -
+2022-01-20:19:33:03,127 INFO     [app.py:38] {'name': 'prabal', 'username': '79prabal'}
+2022-01-20:19:33:03,238 INFO     [app.py:52] Successully saved data
+2022-01-20:19:33:03,238 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:33:03] "POST / HTTP/1.1" 200 -
+2022-01-20:19:33:03,934 INFO     [app.py:38] {'name': 'prabal', 'username': '41prabal'}
+2022-01-20:19:33:04,78 INFO     [app.py:52] Successully saved data
+2022-01-20:19:33:04,78 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:33:04] "POST / HTTP/1.1" 200 -
+2022-01-20:19:33:48,180 INFO     [app.py:38] {'name': 'prabal', 'username': '67prabal'}
+2022-01-20:19:33:48,406 INFO     [app.py:52] Successully saved data
+2022-01-20:19:33:48,406 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 19:33:48] "POST / HTTP/1.1" 200 -

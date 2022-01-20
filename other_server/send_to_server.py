@@ -102,21 +102,21 @@ def send_remain_data():
                 status_code = send_data.status_code
                 print("Status Code: ",status_code)
 
-                # if data sent successfully then update it in local database
-                logging.info("Updating data")
-                cur.execute(
-                    "UPDATE backup_user SET other_status = True WHERE name= %(name)s and username=%(username)s AND other_status=False", {"name":row[0], "username":row[1]})
-
-                mysql.commit()
-                logging.info(f"{row[1]} Successfully send to other server")
-
             except Exception as e:
                 logging.error(
                     "Error in sending data to other server", exc_info=True)
 
             finally:
-                if status_code != 200:
-                    logging.info("Host is down")
+                if status_code == 200:
+                    # if data sent successfully then update it in local database
+                    logging.info("Updating data")
+                    cur.execute(
+                        "UPDATE backup_user SET other_status = True WHERE name= %(name)s and username=%(username)s AND other_status=False", {"name":row[0], "username":row[1]})
+
+                    mysql.commit()
+                    logging.info(f"{row[1]} Successfully send to other server")
+                else:
+                    logging.info(f"Host is down Status Code: {status_code}")
                     return json.dumps({"message": "Host is down"})
 
         cur.close()
