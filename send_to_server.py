@@ -127,5 +127,6 @@ def send_remain_data():
 
 
 
-print(send_save_data(data))
-print(send_remain_data())
+if __name__ == "__main__":
+    print(send_save_data(data))
+    print(send_remain_data())
