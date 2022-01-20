@@ -1,0 +1,20 @@
+2022-01-20:13:14:18,359 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:13:14:18,812 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:13:14:21,125 INFO     [send_to_server.py:64] {'message': 'name: 94prabal created succesfully! but not send to other server'}
+2022-01-20:13:14:21,218 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:13:14:21,328 INFO     [send_to_server.py:80] Fetch result:  (('prabal', '94prabal', 0),)
+2022-01-20:13:14:21,328 INFO     [send_to_server.py:84] Sending remaining data
+2022-01-20:13:14:21,343 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:13:14:22,709 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:13:14:22,709 INFO     [send_to_server.py:109] Updating data
+2022-01-20:13:14:23,17 INFO     [send_to_server.py:114] 94prabal Successfully send to other server
+2022-01-20:13:15:06,576 DEBUG    [proactor_events.py:623] Using proactor: IocpProactor
+2022-01-20:13:15:06,623 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:13:15:06,982 INFO     [send_to_server.py:64] {'message': 'name: 6prabal created succesfully! but not send to other server'}
+2022-01-20:13:15:06,998 DEBUG    [connection.py:890] caching sha2: succeeded by fast path.
+2022-01-20:13:15:07,92 INFO     [send_to_server.py:80] Fetch result:  (('prabal', '6prabal', 0),)
+2022-01-20:13:15:07,92 INFO     [send_to_server.py:84] Sending remaining data
+2022-01-20:13:15:07,107 DEBUG    [connectionpool.py:228] Starting new HTTP connection (1): localhost:5000
+2022-01-20:13:15:08,202 DEBUG    [connectionpool.py:456] http://localhost:5000 "POST / HTTP/1.1" 200 53
+2022-01-20:13:15:08,202 INFO     [send_to_server.py:109] Updating data
+2022-01-20:13:15:08,452 INFO     [send_to_server.py:114] 6prabal Successfully send to other server

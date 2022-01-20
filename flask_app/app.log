@@ -1,0 +1,3 @@
+2022-01-20:13:15:08,108 INFO     [app.py:38] {'name': 'prabal', 'username': '6prabal'}
+2022-01-20:13:15:08,202 INFO     [app.py:52] Successully saved data
+2022-01-20:13:15:08,202 INFO     [_internal.py:225] 127.0.0.1 - - [20/Jan/2022 13:15:08] "POST / HTTP/1.1" 200 -

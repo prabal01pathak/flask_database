@@ -7,7 +7,7 @@ name = "pypi"
 flask = "*"
 mysql-connector-python = "*"
 requests = "*"
-pyresparser = "*"
+aiomysql = "*"
 
 [dev-packages]
 
